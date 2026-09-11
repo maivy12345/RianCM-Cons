@@ -2,7 +2,7 @@
 <meta name="description" content="RianCM Cons (Góc Vuông) tư vấn quản lý dự án, giám sát thi công và đầu tư xây dựng — kiểm soát chất lượng, tiến độ và chi phí cho chủ đầu tư.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy-950: #08132E;
@@ -179,38 +179,79 @@
   /* ===== HERO ===== */
   .hero {
     position: relative;
-    background:
-      radial-gradient(1200px 500px at 100% 0%, rgba(245,180,23,.10), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(242,101,34,.08), transparent 55%),
-      linear-gradient(180deg, #08132E 0%, #0F1F44 62%, #17295A 100%);
+    background: linear-gradient(100deg, #050B1E 0%, #08132E 45%, #0B1B44 75%, #12295F 100%);
     color: #EAF0FF;
     overflow: hidden;
+    isolation: isolate;
   }
+  /* Base grid */
   .hero::before {
     content:""; position: absolute; inset:0;
     background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size: 48px 48px; opacity: .5; pointer-events:none;
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 56px 56px; opacity: .55; pointer-events:none;
+    z-index: 0;
   }
+  /* Right-side warm glow */
+  .hero::after {
+    content:""; position: absolute; inset: 0;
+    background:
+      radial-gradient(600px 500px at 82% 40%, rgba(245,180,23,.22), transparent 55%),
+      radial-gradient(500px 400px at 95% 70%, rgba(242,101,34,.14), transparent 55%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Wireframe blueprint SVG background */
+  .hero-blueprint {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    opacity: .55;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700'><g fill='none' stroke='%233A6FC7' stroke-width='1.1' opacity='0.7'><path d='M420 640 L420 300 L560 240 L560 580 Z'/><path d='M420 560 L560 500'/><path d='M420 480 L560 420'/><path d='M420 400 L560 340'/><path d='M560 580 L720 520 L720 200 L560 240'/><path d='M560 500 L720 440'/><path d='M560 420 L720 360'/><path d='M560 340 L720 280'/><path d='M720 520 L860 460 L860 160 L720 200'/><path d='M720 440 L860 380'/><path d='M720 360 L860 300'/><path d='M720 280 L860 220'/><path d='M480 300 L480 640 M520 280 L520 640 M600 240 L600 580 M660 220 L660 560 M760 200 L760 520 M820 180 L820 480'/></g></svg>");
+    background-size: cover; background-position: 35% center;
+  }
+
+  /* Actual construction bg photo (optional — drop assets/hero-bg.jpg to activate) */
+  .hero-photo {
+    position: absolute; top:0; right:0; bottom:0; width: 62%; z-index: 1;
+    background: url("assets/hero-bg.jpg") center/cover no-repeat;
+    opacity: .55; mix-blend-mode: screen;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+    pointer-events: none;
+  }
+
+  /* Yellow diagonal slashes */
+  .hero-slash {
+    position: absolute; z-index: 2; pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    height: 2px; opacity: .55;
+  }
+  .hero-slash.s1 { top: 30%; right: 25%; width: 260px; transform: rotate(58deg); }
+  .hero-slash.s2 { top: 55%; right: 8%;  width: 320px; transform: rotate(58deg); opacity:.35; }
+  .hero-slash.s3 { top: 78%; right: 35%; width: 200px; transform: rotate(58deg); opacity:.25; }
+
   .hero-inner {
-    display: grid; grid-template-columns: 1.15fr .85fr;
+    position: relative; z-index: 5;
+    display: grid; grid-template-columns: 1.05fr .95fr;
     gap: 56px; align-items: center;
-    padding-block: 96px 110px;
-    position: relative;
+    padding-block: 90px 110px;
   }
-  .hero .eyebrow { color: var(--gold-400); }
+  .hero .eyebrow { color: var(--gold-400); margin-bottom: 22px; }
   .hero .eyebrow::before { background: var(--gold-400); }
-  .hero h1 { color: #fff; margin-bottom: .5em; }
-  .hero h1 .accent { color: var(--gold-400); }
+  .hero h1 { color: #fff; margin-bottom: .5em; font-size: clamp(2.1rem, 4.6vw, 3.75rem); line-height: 1.1; }
+  .hero h1 .accent {
+    background: linear-gradient(90deg, #FBC531 0%, #F5B417 60%, #F5B417 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    display: inline-block;
+  }
   .hero .lead {
-    color: #C4CFE8; font-size: 1.08rem; max-width: 560px;
-    margin-bottom: 32px;
+    color: #B7C2E0; font-size: 1.05rem; max-width: 520px;
+    margin-bottom: 34px;
   }
   .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 22px; border-radius: 999px;
+    padding: 14px 24px; border-radius: 999px;
     font-weight: 700; font-size: .95rem;
     transition: transform .15s, background .15s, color .15s, box-shadow .15s;
     border: 1.5px solid transparent;
@@ -218,97 +259,109 @@
   }
   .btn-primary {
     background: var(--gold-500); color: var(--navy-950);
-    box-shadow: 0 8px 22px rgba(245,180,23,.35);
+    box-shadow: 0 10px 28px rgba(245,180,23,.35);
   }
   .btn-primary:hover { background: var(--gold-400); transform: translateY(-2px); }
   .btn-ghost {
     background: transparent; color: #fff;
-    border-color: rgba(255,255,255,.28);
+    border-color: rgba(255,255,255,.32);
   }
   .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: var(--gold-400); }
   .btn svg { width: 16px; height: 16px; }
-
-  .hero-badges {
-    margin-top: 40px;
-    display: flex; gap: 28px; flex-wrap: wrap;
-    color: #A8B4D0; font-size: .87rem;
+  .btn-primary svg {
+    background: var(--navy-950); color: var(--gold-500);
+    border-radius: 999px; width: 22px; height: 22px; padding: 5px;
   }
-  .hero-badges strong { color: #fff; display: block; font-size: 1.35rem; font-weight: 800; }
-  .hero-badges > div { border-left: 2px solid var(--gold-500); padding-left: 14px; }
 
-  /* HERO visual card */
+  .hero-stats {
+    margin-top: 46px;
+    display: flex; gap: 30px; flex-wrap: wrap;
+    color: #94A2C6; font-size: .82rem;
+  }
+  .hero-stats strong { color: #fff; display: block; font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; margin-bottom: 2px; }
+  .hero-stats > div { border-left: 2px solid var(--gold-500); padding-left: 14px; }
+
+  /* ===== HERO RIGHT VISUAL ===== */
   .hero-visual {
     position: relative;
-    aspect-ratio: 4 / 5;
-    max-width: 460px; justify-self: end;
+    min-height: 620px;
+    justify-self: stretch;
   }
-  .hero-card {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, #22366F 0%, #0F1F44 100%);
-    border-radius: 24px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,.08);
-    box-shadow: var(--shadow-lg);
+  .hero-person {
+    position: absolute; right: -20px; bottom: -110px;
+    height: 720px; width: auto; max-width: none;
+    z-index: 3; pointer-events: none;
+    filter: drop-shadow(-20px 20px 30px rgba(0,0,0,.35));
   }
-  .hero-card .blueprint {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(245,180,23,.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(245,180,23,.08) 1px, transparent 1px);
-    background-size: 32px 32px;
+  /* Fallback silhouette shape when hero-person.png is missing */
+  .hero-person-fallback {
+    position: absolute; right: 0; bottom: 0;
+    width: 82%; height: 88%; z-index: 2;
+    background:
+      radial-gradient(180px 240px at 55% 22%, rgba(245,180,23,.14), transparent 60%),
+      radial-gradient(160px 160px at 60% 85%, rgba(15,31,68,.55), transparent 65%);
+    border-radius: 40% 20% 30% 30%;
+    filter: blur(1px);
+    opacity: .6;
   }
-  .hero-card .diag {
-    position: absolute; right: -30%; bottom: -20%;
-    width: 140%; height: 140%;
-    background: radial-gradient(closest-side, rgba(242,101,34,.35), transparent 70%);
-  }
-  .hero-card .content {
-    position: absolute; inset: 28px;
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .hero-card .tag {
-    align-self: flex-start;
-    background: rgba(245,180,23,.15);
-    color: var(--gold-400);
-    padding: 6px 12px; border-radius: 999px;
-    font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-    border: 1px solid rgba(245,180,23,.28);
-  }
-  .hero-card h3 {
-    color: #fff; font-size: 1.4rem; line-height: 1.3;
-    margin-bottom: 16px;
-  }
-  .hero-card p { color: #B7C2DE; font-size: .95rem; }
-  .metric-strip {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 12px; margin-top: 20px;
-  }
-  .metric {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 12px; padding: 12px;
-  }
-  .metric b {
-    display: block; color: var(--gold-400);
-    font-size: 1.15rem; font-weight: 800; margin-bottom: 2px;
-  }
-  .metric span { color: #C1CBE3; font-size: .75rem; }
 
-  .floating-chip {
-    position: absolute; z-index: 3;
-    background: #fff; color: var(--navy-900);
-    padding: 12px 16px; border-radius: 14px;
-    box-shadow: var(--shadow-lg); font-size: .85rem;
-    display: flex; align-items: center; gap: 10px; font-weight: 600;
+  /* Floating info cards */
+  .floating-card {
+    position: absolute; z-index: 4;
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 22px 16px 16px;
+    background: linear-gradient(135deg, rgba(15,31,68,.86), rgba(8,19,46,.9));
+    border: 1px solid rgba(245,180,23,.22);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+    color: #fff; font-size: .95rem; line-height: 1.3;
+    backdrop-filter: blur(8px);
+    min-width: 240px;
   }
-  .floating-chip .dot-ok {
-    width: 28px; height: 28px; border-radius: 8px;
-    background: rgba(46, 175, 108, .12); color: #21a565;
-    display: grid; place-items: center;
+  .floating-card small { color: #C4CFE8; display: block; font-size: .84rem; font-weight: 500; margin-bottom: 2px; }
+  .floating-card strong { color: var(--gold-400); font-weight: 800; font-size: 1rem; }
+  .floating-card .fc-arrow {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gold-500); color: var(--navy-950);
+    display: grid; place-items: center; margin-left: auto;
+    flex: none;
   }
-  .floating-chip svg { width: 16px; height: 16px; }
-  .chip-1 { top: -18px; left: -30px; }
-  .chip-2 { bottom: 40px; left: -50px; background: var(--gold-500); color: var(--navy-950); }
-  .chip-2 .dot-ok { background: rgba(15,31,68,.15); color: var(--navy-900); }
+  .floating-card .fc-arrow svg { width: 14px; height: 14px; }
+  .fc-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--gold-500); color: var(--navy-950);
+    display: grid; place-items: center; flex: none;
+    box-shadow: 0 6px 18px rgba(245,180,23,.35);
+  }
+  .fc-icon svg { width: 24px; height: 24px; }
+  .floating-card.fc-a { top: 60px;  left: 20px; }
+  .floating-card.fc-b { top: 210px; left: 60px; }
+
+  /* Vertical/edge label stacks */
+  .hero-label {
+    position: absolute; z-index: 4;
+    text-align: right;
+    font-family: 'Manrope', sans-serif;
+    color: rgba(255,255,255,.55);
+    font-size: .68rem; letter-spacing: .28em; line-height: 1.8;
+    font-weight: 600; text-transform: uppercase;
+  }
+  .hero-label b { color: var(--gold-400); font-weight: 700; }
+  .hero-label.lbl-1 { top: 20px;  right: 0; }
+  .hero-label.lbl-2 { top: 220px; right: 0; }
+  .hero-label.lbl-3 { bottom: 60px; right: 0; }
+
+  .hero-script {
+    position: absolute; z-index: 4;
+    right: 30%; bottom: 32%;
+    font-family: 'Caveat', cursive;
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--gold-400);
+    transform: rotate(-6deg);
+    text-shadow: 0 4px 20px rgba(245,180,23,.25);
+    line-height: 1;
+    pointer-events: none;
+  }
 
   /* ===== TRUSTED BAR ===== */
   .trusted {
@@ -754,10 +807,18 @@
   .bottom-bar a { color: #B4BFDA; }
   .bottom-bar a:hover { color: var(--gold-400); }
 
+  .hidden { display: none !important; }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; padding-block: 70px 90px; }
-    .hero-visual { justify-self: start; max-width: 380px; }
+    .hero-visual { min-height: 480px; }
+    .hero-person { height: 560px; right: -10px; bottom: -60px; }
+    .hero-label { display: none; }
+    .hero-script { right: 8%; bottom: 28%; font-size: 1.9rem; }
+    .floating-card.fc-a { top: 20px; left: 10px; min-width: 220px; }
+    .floating-card.fc-b { top: 150px; left: 40px; min-width: 220px; }
+    .hero-photo { width: 78%; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .service-grid { grid-template-columns: repeat(2, 1fr); }
     .service-highlight { grid-column: span 2; grid-template-columns: 1fr; }
@@ -784,7 +845,17 @@
     .logo-row { justify-content: flex-start; }
     .cta-band { margin-inline: 0; border-radius: 16px; }
     .hero { text-align: left; }
-    .floating-chip.chip-1, .floating-chip.chip-2 { display: none; }
+    .hero-inner { padding-block: 60px 70px; gap: 30px; }
+    .hero-visual { min-height: 380px; }
+    .hero-person { height: 420px; right: -30px; bottom: -30px; }
+    .hero-photo { width: 100%; opacity: .35; }
+    .floating-card { min-width: 200px; padding: 12px 16px 12px 12px; font-size: .88rem; }
+    .floating-card.fc-a { top: 10px; left: 10px; }
+    .floating-card.fc-b { top: 120px; left: 20px; }
+    .fc-icon { width: 40px; height: 40px; }
+    .fc-icon svg { width: 20px; height: 20px; }
+    .hero-script { display: none; }
+    .hero-stats { gap: 18px; margin-top: 34px; }
   }
 </style>
 
@@ -864,7 +935,14 @@
 
 <!-- ============ HERO ============ -->
 <section id="top" class="hero" style="padding:0;">
+  <div class="hero-blueprint" aria-hidden="true"></div>
+  <div class="hero-photo" aria-hidden="true"></div>
+  <span class="hero-slash s1" aria-hidden="true"></span>
+  <span class="hero-slash s2" aria-hidden="true"></span>
+  <span class="hero-slash s3" aria-hidden="true"></span>
+
   <div class="container hero-inner">
+    <!-- LEFT COLUMN -->
     <div>
       <span class="eyebrow">RianCM Cons Co., Ltd</span>
       <h1>Tư vấn quản lý xây dựng — kiểm soát <span class="accent">chất lượng, tiến độ &amp; chi phí</span></h1>
@@ -872,14 +950,14 @@
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">
           Gửi yêu cầu tư vấn
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="#projects" class="btn btn-ghost">
           Xem dự án tiêu biểu
         </a>
       </div>
 
-      <div class="hero-badges">
+      <div class="hero-stats">
         <div>
           <strong>05</strong>
           Dịch vụ tư vấn chuyên sâu
@@ -895,30 +973,52 @@
       </div>
     </div>
 
+    <!-- RIGHT VISUAL -->
     <div class="hero-visual">
-      <div class="floating-chip chip-1">
-        <span class="dot-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
-        Hiện trường được giám sát 24/7
+      <!-- Edge labels -->
+      <div class="hero-label lbl-1">
+        People<br>Process<br>Quality<br><b>Sustainable Value</b>
       </div>
-      <div class="hero-card">
-        <div class="blueprint"></div>
-        <div class="diag"></div>
-        <div class="content">
-          <span class="tag">Dự án đang triển khai</span>
-          <div>
-            <h3>Khu công nghiệp Nam Thăng Bình — 346 ha</h3>
-            <p>Vai trò RianCM Cons: tư vấn quản lý dự án, giám sát thi công, đầu tư và thiết kế.</p>
-            <div class="metric-strip">
-              <div class="metric"><b>346</b><span>ha diện tích</span></div>
-              <div class="metric"><b>A+</b><span>Đánh giá kỹ thuật</span></div>
-              <div class="metric"><b>100%</b><span>Đúng tiến độ</span></div>
-            </div>
-          </div>
+      <div class="hero-label lbl-2">
+        From<br>Foundation<br>to a<br>Better<br>Tomorrow
+      </div>
+      <div class="hero-label lbl-3">
+        Construction<br>Management<br>for a Brighter<br><b>Vietnam</b>
+      </div>
+
+      <!-- Person image (drop assets/hero-person.png to activate) -->
+      <img class="hero-person" src="assets/hero-person.png" alt="Kỹ sư RianCM Cons tại công trường"
+           onerror="this.style.display='none'; this.nextElementSibling && this.nextElementSibling.classList.remove('hidden');" />
+      <div class="hero-person-fallback hidden" aria-hidden="true"></div>
+
+      <!-- Script decorative text -->
+      <div class="hero-script">Build A Better Tomorrow</div>
+
+      <!-- Floating cards -->
+      <div class="floating-card fc-a">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
+        <div>
+          <small>Cam kết</small>
+          <strong>đúng chuẩn ngay từ đầu</strong>
+        </div>
+        <span class="fc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
       </div>
-      <div class="floating-chip chip-2">
-        <span class="dot-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 2 L3 6 v6 c0 5 3.5 8 9 10 5.5-2 9-5 9-10 V6z"/></svg></span>
-        Cam kết đúng chuẩn ngay từ đầu
+
+      <div class="floating-card fc-b">
+        <div class="fc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="14" height="10" rx="1"/><path d="m17 10 4-2v8l-4-2z"/><circle cx="10" cy="12" r="2"/></svg>
+        </div>
+        <div>
+          <small>Hiện trường</small>
+          <strong>được giám sát <span style="color:#fff;">24/7</span></strong>
+        </div>
+        <span class="fc-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
       </div>
     </div>
   </div>
