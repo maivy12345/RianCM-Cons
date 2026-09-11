@@ -187,15 +187,7 @@
     overflow: hidden;
     isolation: isolate;
   }
-  /* Base grid */
-  .hero::before {
-    content:""; position: absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size: 56px 56px; opacity: .55; pointer-events:none;
-    z-index: 0;
-  }
+  /* Base grid removed */
   /* Right-side warm glow */
   .hero::after {
     content:""; position: absolute; inset: 0;
@@ -939,11 +931,7 @@
 
 <!-- ============ HERO ============ -->
 <section id="top" class="hero" style="padding:0;">
-  <div class="hero-blueprint" aria-hidden="true"></div>
   <div class="hero-photo" aria-hidden="true"></div>
-  <span class="hero-slash s1" aria-hidden="true"></span>
-  <span class="hero-slash s2" aria-hidden="true"></span>
-  <span class="hero-slash s3" aria-hidden="true"></span>
 
   <div class="container hero-inner">
     <!-- LEFT COLUMN -->
