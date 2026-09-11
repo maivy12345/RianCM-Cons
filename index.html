@@ -1,5 +1,8 @@
 <title>RianCM Cons — Tư vấn quản lý xây dựng</title>
 <meta name="description" content="RianCM Cons (Góc Vuông) tư vấn quản lý dự án, giám sát thi công và đầu tư xây dựng — kiểm soát chất lượng, tiến độ và chi phí cho chủ đầu tư.">
+<link rel="icon" type="image/svg+xml" href="assets/logofav.svg">
+<link rel="preload" as="image" href="assets/hero-bg.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-person.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -213,7 +216,7 @@
   /* Actual construction bg photo */
   .hero-photo {
     position: absolute; top:0; right:0; bottom:0; width: 72%; z-index: 1;
-    background: url("assets/hero-bg.png") right center/cover no-repeat;
+    background: url("assets/hero-bg.jpg") right center/cover no-repeat;
     opacity: 1;
     mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
@@ -881,7 +884,7 @@
 <header class="header">
   <div class="container nav">
     <a href="/" class="brand" aria-label="RianCM — Right Angle Construction Management">
-      <img class="brand-logo" src="assets/logo.png" alt="RianCM Cons — Right Angle Construction Management" />
+      <img class="brand-logo" src="assets/logo.png" alt="RianCM Cons — Right Angle Construction Management" width="400" height="89" decoding="async" />
     </a>
 
     <nav>
@@ -976,24 +979,11 @@
 
     <!-- RIGHT VISUAL -->
     <div class="hero-visual">
-      <!-- Edge labels -->
-      <div class="hero-label lbl-1">
-        People<br>Process<br>Quality<br><b>Sustainable Value</b>
-      </div>
-      <div class="hero-label lbl-2">
-        From<br>Foundation<br>to a<br>Better<br>Tomorrow
-      </div>
-      <div class="hero-label lbl-3">
-        Construction<br>Management<br>for a Brighter<br><b>Vietnam</b>
-      </div>
-
       <!-- Person image (drop assets/hero-person.png to activate) -->
       <img class="hero-person" src="assets/hero-person.png" alt="Kỹ sư RianCM Cons tại công trường"
+           width="600" height="800" decoding="async" fetchpriority="high"
            onerror="this.style.display='none'; this.nextElementSibling && this.nextElementSibling.classList.remove('hidden');" />
       <div class="hero-person-fallback hidden" aria-hidden="true"></div>
-
-      <!-- Script decorative text -->
-      <div class="hero-script">Build A Better Tomorrow</div>
 
       <!-- Floating cards -->
       <div class="floating-card fc-a">
