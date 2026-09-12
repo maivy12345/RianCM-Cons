@@ -513,8 +513,26 @@
   .services .section-head p { max-width: 640px; margin-inline: auto; }
 
   .service-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    position: relative;
   }
+  /* Connector visual on each card corner: line + dot */
+  .connector {
+    position: absolute; z-index: 3; pointer-events: none;
+    background: rgba(242,101,34,.4);
+  }
+  .connector::after {
+    content: ""; position: absolute;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--orange-500);
+    box-shadow: 0 0 0 4px rgba(242,101,34,.14);
+  }
+  /* Horizontal — sits on right edge of a card, extends into the gap */
+  .connector.h { top: 50%; right: -30px; width: 30px; height: 2px; transform: translateY(-50%); }
+  .connector.h::after { top: 50%; right: -4px; transform: translateY(-50%); }
+  /* Vertical — sits at bottom edge, extends into the gap below */
+  .connector.v { left: 50%; bottom: -30px; width: 2px; height: 30px; transform: translateX(-50%); }
+  .connector.v::after { left: 50%; bottom: -4px; transform: translateX(-50%); }
   .service-card {
     position: relative;
     background: #fff; border: 1px solid var(--line);
@@ -567,16 +585,16 @@
   .service-photo {
     position: relative; border-radius: 20px; overflow: hidden;
     background:
-      linear-gradient(180deg, rgba(8,19,46,.08) 40%, rgba(8,19,46,.7) 100%),
+      linear-gradient(180deg, rgba(8,19,46,.55) 0%, rgba(8,19,46,.15) 45%, rgba(8,19,46,.6) 100%),
       url("assets/services-crane.jpg") center/cover no-repeat;
     min-height: 300px;
-    display: flex; align-items: flex-end;
-    padding: 28px;
+    display: flex; align-items: flex-start; justify-content: flex-end;
+    padding: 30px 28px;
     color: #fff;
     transition: transform .25s, box-shadow .25s;
   }
   .service-photo::before {
-    content: ""; position: absolute; top: 22px; left: 28px;
+    content: ""; position: absolute; top: 30px; right: 28px;
     width: 34px; height: 2px; background: var(--gold-400);
   }
   .service-photo:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(15,31,68,.20); }
@@ -584,7 +602,10 @@
     font-family: 'Manrope', sans-serif;
     font-size: .82rem; letter-spacing: .32em; text-transform: uppercase;
     font-weight: 700; line-height: 1.9;
-    text-shadow: 0 2px 8px rgba(0,0,0,.35);
+    color: #fff;
+    text-align: right;
+    margin-top: 18px;
+    text-shadow: 0 2px 10px rgba(0,0,0,.55);
   }
 
   /* Card 04 style: dark image background with content overlaid */
@@ -905,6 +926,7 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .service-grid { grid-template-columns: repeat(2, 1fr); }
     .service-photo { min-height: 260px; }
+    .connector { display: none; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .project-grid { grid-template-columns: repeat(2, 1fr); }
     .partners-grid { grid-template-columns: repeat(2, minmax(180px, 260px)); }
@@ -1255,6 +1277,8 @@
         <a href="#" class="service-link">Xem chi tiết
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <span class="connector h" aria-hidden="true"></span>
+        <span class="connector v" aria-hidden="true"></span>
       </article>
 
       <!-- 02 -->
@@ -1268,11 +1292,13 @@
         <a href="#" class="service-link">Xem chi tiết
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <span class="connector h" aria-hidden="true"></span>
       </article>
 
       <!-- Image accent: right side of top row -->
       <div class="service-photo" aria-hidden="true">
         <p class="photo-caption">Chất lượng<br>tạo nên<br>niềm tin</p>
+        <span class="connector v" aria-hidden="true"></span>
       </div>
 
       <!-- 03 -->
@@ -1286,6 +1312,7 @@
         <a href="#" class="service-link">Xem chi tiết
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <span class="connector h" aria-hidden="true"></span>
       </article>
 
       <!-- 04 with dark image background -->
@@ -1300,6 +1327,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <span class="photo-tag">Từ ý tưởng<br>đến công trình<br>hiện thực</span>
+        <span class="connector h" aria-hidden="true"></span>
       </article>
 
       <!-- 05 -->
