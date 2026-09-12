@@ -503,16 +503,10 @@
 
   /* ===== SERVICES ===== */
   .services {
-    background: linear-gradient(180deg, #fff 0%, #F7F9FE 100%);
-    position: relative;
-  }
-  /* Decorative connector lines behind the grid */
-  .service-connectors {
-    position: absolute; inset: 0; z-index: 0;
-    pointer-events: none;
     background:
-      radial-gradient(circle at 20% 25%, rgba(242,101,34,.06), transparent 30%),
-      radial-gradient(circle at 82% 78%, rgba(245,180,23,.05), transparent 30%);
+      linear-gradient(180deg, rgba(255,255,255,.82) 0%, rgba(247,249,254,.9) 100%),
+      url("assets/services-bg.jpg") center/cover no-repeat;
+    position: relative;
   }
   .services .container { position: relative; z-index: 1; }
   .services .section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.75rem); }
@@ -572,8 +566,9 @@
   /* Photo cell: only imagery + a caption, no service data */
   .service-photo {
     position: relative; border-radius: 20px; overflow: hidden;
-    background: linear-gradient(160deg, rgba(8,19,46,.15) 0%, rgba(8,19,46,.75) 100%),
-                url("assets/hero-bg.jpg") center/cover no-repeat;
+    background:
+      linear-gradient(180deg, rgba(8,19,46,.08) 40%, rgba(8,19,46,.7) 100%),
+      url("assets/services-crane.jpg") center/cover no-repeat;
     min-height: 300px;
     display: flex; align-items: flex-end;
     padding: 28px;
@@ -589,13 +584,14 @@
     font-family: 'Manrope', sans-serif;
     font-size: .82rem; letter-spacing: .32em; text-transform: uppercase;
     font-weight: 700; line-height: 1.9;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
 
   /* Card 04 style: dark image background with content overlaid */
   .service-card.service-dark {
     background:
-      linear-gradient(160deg, rgba(8,19,46,.85) 0%, rgba(8,19,46,.92) 100%),
-      url("assets/hero-bg.jpg") center/cover no-repeat;
+      linear-gradient(160deg, rgba(8,19,46,.82) 0%, rgba(8,19,46,.92) 100%),
+      url("assets/services-dark.jpg") center/cover no-repeat;
     color: #fff; border-color: transparent;
   }
   .service-card.service-dark h3 { color: #fff; }
