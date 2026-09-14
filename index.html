@@ -586,6 +586,98 @@
   .service-link svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform .2s; }
   .service-link:hover svg { transform: translateX(3px); }
 
+  /* 4-in-a-row image cards — title + link by default, description on hover */
+  .service-grid.service-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1260px;
+    margin-inline: auto;
+    gap: 30px;
+  }
+  .service-card.has-photo {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 0;
+    aspect-ratio: 3/4;
+    min-height: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: block;
+    isolation: isolate;
+  }
+  .service-card.has-photo::before, .service-card.has-photo::after { display: none; }
+  .service-card.has-photo .connector { display: none; }
+  .service-card.has-photo .service-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,19,46,0) 40%, rgba(8,19,46,.55) 72%, rgba(8,19,46,.92) 100%);
+    transition: background .8s cubic-bezier(.4, 0, .2, 1);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .service-card.has-photo:hover .service-scrim {
+    background: linear-gradient(180deg, rgba(8,19,46,.25) 0%, rgba(8,19,46,.72) 55%, rgba(8,19,46,.94) 100%);
+  }
+  .service-card.has-photo .service-content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 24px 24px;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card.has-photo .service-desc {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      grid-template-rows .75s cubic-bezier(.4, 0, .2, 1),
+      opacity .6s cubic-bezier(.4, 0, .2, 1),
+      transform .75s cubic-bezier(.4, 0, .2, 1),
+      margin-bottom .75s cubic-bezier(.4, 0, .2, 1);
+    margin-bottom: 0;
+  }
+  .service-card.has-photo .service-desc > .service-desc-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .service-card.has-photo:hover .service-desc {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transform: translateY(0);
+    margin-bottom: 14px;
+  }
+  .service-card.has-photo .service-desc p {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.92);
+  }
+  .service-card.has-photo h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    font-weight: 800;
+  }
+  .service-card.has-photo .service-link {
+    align-self: flex-start;
+    width: auto;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: var(--gold-400);
+    font-weight: 700;
+    font-size: .95rem;
+    gap: 8px;
+  }
+  .service-card.has-photo .service-link:hover { color: var(--orange-500); border-color: transparent; }
+  .service-card.has-photo .service-link svg { width: 16px; height: 16px; }
+
   /* Photo cell: only imagery + a caption, no service data */
   .service-photo {
     position: relative; border-radius: 20px; overflow: hidden;
@@ -726,6 +818,7 @@
 
   /* ===== APPROACH / PROCESS ===== */
   .process { background: #fff; }
+  .process .section-head p { max-width: 900px; }
   .process-grid {
     display: grid; grid-template-columns: repeat(5, 1fr);
     gap: 16px; position: relative;
@@ -1068,6 +1161,10 @@
     .floating-card.fc-b { top: 160px; left: 20px; bottom: auto; right: auto; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-grid.service-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .service-card.has-photo { aspect-ratio: 4/5; min-height: 380px; }
+    .service-card.has-photo .service-desc { max-height: 220px; opacity: 1; margin-bottom: 14px; }
+    .service-card.has-photo .service-scrim { background: linear-gradient(180deg, rgba(8,19,46,.15) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.94) 100%); }
     .service-photo { min-height: 260px; }
     .connector { display: none; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1217,7 +1314,6 @@
             <a href="/dich-vu/quan-ly-du-an/">Tư vấn quản lý dự án</a>
             <a href="/dich-vu/tu-van-giam-sat/">Tư vấn giám sát thi công</a>
             <a href="/dich-vu/tu-van-dau-tu/">Tư vấn đầu tư</a>
-            <a href="/dich-vu/tu-van-thiet-ke/">Tư vấn thiết kế</a>
             <a href="/dich-vu/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a>
           </div>
         </li>
@@ -1226,7 +1322,6 @@
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="dropdown">
-            <a href="/du-an/">Tất cả dự án</a>
             <a href="/du-an/quan-ly-du-an/">Quản lý dự án</a>
             <a href="/du-an/tu-van-giam-sat/">Tư vấn giám sát</a>
             <a href="/du-an/tu-van-thiet-ke/">Tư vấn thiết kế</a>
@@ -1390,81 +1485,49 @@
       <p>Từ giai đoạn chuẩn bị đầu tư đến bàn giao — chúng tôi cùng chủ đầu tư kiểm soát mọi biến số của một dự án xây dựng.</p>
     </div>
 
-    <div class="service-grid">
-      <!-- 01 -->
-      <article class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6M9 8h.01"/></svg>
+    <div class="service-grid service-grid-4">
+      <article class="service-card has-photo" style="background-image: url('/assets/project-bin-hq.jpg');">
+        <span class="service-scrim" aria-hidden="true"></span>
+        <div class="service-content">
+          <h3>Tư vấn quản lý dự án</h3>
+          <div class="service-desc"><div class="service-desc-inner"><p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p></div></div>
+          <a href="/dich-vu/quan-ly-du-an/" class="service-link">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <h3>Tư vấn quản lý dự án</h3>
-        <p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p>
-        <a href="/dich-vu/quan-ly-du-an/" class="service-link">Xem chi tiết
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <span class="connector h" aria-hidden="true"></span>
-        <span class="connector v" aria-hidden="true"></span>
       </article>
 
-      <!-- 02 -->
-      <article class="service-card">
-        <div class="service-num">02</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg>
+      <article class="service-card has-photo" style="background-image: url('/assets/services-crane.jpg');">
+        <span class="service-scrim" aria-hidden="true"></span>
+        <div class="service-content">
+          <h3>Tư vấn giám sát thi công</h3>
+          <div class="service-desc"><div class="service-desc-inner"><p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p></div></div>
+          <a href="/dich-vu/tu-van-giam-sat/" class="service-link">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <h3>Tư vấn giám sát thi công</h3>
-        <p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p>
-        <a href="/dich-vu/tu-van-giam-sat/" class="service-link">Xem chi tiết
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <span class="connector h" aria-hidden="true"></span>
       </article>
 
-      <!-- Image accent: right side of top row -->
-      <div class="service-photo" aria-hidden="true">
-        <p class="photo-caption">Chất lượng<br>tạo nên<br>niềm tin</p>
-        <span class="connector v" aria-hidden="true"></span>
-      </div>
-
-      <!-- 03 -->
-      <article class="service-card">
-        <div class="service-num">03</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-4 4 4 5-6"/><circle cx="7" cy="15" r="1.5"/><circle cx="11" cy="11" r="1.5"/><circle cx="15" cy="15" r="1.5"/></svg>
+      <article class="service-card has-photo" style="background-image: url('/assets/project-tram-bess.jpg');">
+        <span class="service-scrim" aria-hidden="true"></span>
+        <div class="service-content">
+          <h3>Tư vấn đầu tư xây dựng</h3>
+          <div class="service-desc"><div class="service-desc-inner"><p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p></div></div>
+          <a href="/dich-vu/tu-van-dau-tu/" class="service-link">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <h3>Tư vấn đầu tư xây dựng</h3>
-        <p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p>
-        <a href="/dich-vu/tu-van-dau-tu/" class="service-link">Xem chi tiết
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <span class="connector h" aria-hidden="true"></span>
       </article>
 
-      <!-- 04 -->
-      <article class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20l3-3M5 17l6-6"/><path d="M11 11 20 2l2 2-9 9z"/><path d="M14 14l6 6"/><path d="M6 20h.01"/></svg>
+      <article class="service-card has-photo" style="background-image: url('/assets/project-549a.jpg');">
+        <span class="service-scrim" aria-hidden="true"></span>
+        <div class="service-content">
+          <h3>Tư vấn quản lý chi phí</h3>
+          <div class="service-desc"><div class="service-desc-inner"><p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p></div></div>
+          <a href="/dich-vu/quan-ly-chi-phi/" class="service-link">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <h3>Tư vấn thiết kế</h3>
-        <p>Tư vấn và kiểm soát hồ sơ thiết kế để phương án đáp ứng công năng, kỹ thuật và ngân sách, hạn chế chỉnh sửa khi thi công.</p>
-        <a href="/dich-vu/tu-van-thiet-ke/" class="service-link">Xem chi tiết
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <span class="connector h" aria-hidden="true"></span>
-      </article>
-
-      <!-- 05 -->
-      <article class="service-card">
-        <div class="service-num">05</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3>Tư vấn quản lý chi phí</h3>
-        <p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p>
-        <a href="/dich-vu/quan-ly-chi-phi/" class="service-link">Xem chi tiết
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
       </article>
     </div>
   </div>
@@ -1743,7 +1806,6 @@
             <option>Tư vấn quản lý dự án</option>
             <option>Tư vấn giám sát thi công</option>
             <option>Tư vấn đầu tư</option>
-            <option>Tư vấn thiết kế</option>
             <option>Tư vấn quản lý chi phí</option>
             <option>Trọn gói — cần tư vấn tổng thể</option>
           </select>
@@ -1782,7 +1844,6 @@
           <li><a href="/dich-vu/quan-ly-du-an/">Tư vấn quản lý dự án</a></li>
           <li><a href="/dich-vu/tu-van-giam-sat/">Tư vấn giám sát thi công</a></li>
           <li><a href="/dich-vu/tu-van-dau-tu/">Tư vấn đầu tư</a></li>
-          <li><a href="/dich-vu/tu-van-thiet-ke/">Tư vấn thiết kế</a></li>
           <li><a href="/dich-vu/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a></li>
         </ul>
       </div>

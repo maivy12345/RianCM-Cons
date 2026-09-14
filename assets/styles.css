@@ -852,6 +852,26 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 1024px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px)  { .news-grid { grid-template-columns: 1fr; } }
 
+/* Services listing — 4 cards in a 2x2 grid with photo covers */
+.services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1080px; margin-inline: auto; }
+.services-grid-4 .news-card { border-radius: 18px; }
+.services-grid-4 .news-cover { aspect-ratio: 16/9; }
+.news-cover.has-photo {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: filter .25s, transform .25s;
+}
+.news-cover.has-photo::before { display: none; }
+.news-cover.has-photo:hover { filter: brightness(1.05); }
+.news-card:hover .news-cover.has-photo { transform: scale(1.02); }
+.services-grid-4 .news-body { padding: 24px 24px 26px; }
+.services-grid-4 .news-body h3 { font-size: 1.15rem; }
+@media (max-width: 720px) {
+  .services-grid-4 { grid-template-columns: 1fr; gap: 20px; }
+}
+
 /* ==========================================================================
    SERVICE DETAIL (/dich-vu/{ten-dich-vu})
    ========================================================================== */
