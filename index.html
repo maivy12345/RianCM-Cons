@@ -755,7 +755,7 @@
   .projects { background: linear-gradient(180deg, #F7F9FE 0%, #fff 100%); }
   .projects-head {
     display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px; max-width: 900px;
   }
   .projects-filters {
     display: flex; gap: 8px; flex-wrap: wrap;
@@ -995,6 +995,24 @@
     box-shadow: 0 0 0 4px rgba(15,31,68,.08);
   }
   .form-field textarea { resize: vertical; min-height: 110px; }
+  .form-field select {
+    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    padding-right: 44px; cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F1F44' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+  }
+  .form-field select::-ms-expand { display: none; }
+  .form-field select:hover { border-color: var(--navy-700); }
+  .form-field select option {
+    background: #fff; color: var(--navy-900);
+    padding: 12px 14px; font-weight: 500;
+  }
+  .form-field select option:checked,
+  .form-field select option:hover {
+    background: var(--navy-50); color: var(--navy-900);
+  }
   .consent { display: flex; gap: 10px; font-size: .85rem; color: var(--ink-500); margin: 4px 0 18px; }
   .consent input { margin-top: 4px; }
   .form-card .btn { width: 100%; justify-content: center; white-space: nowrap; }
