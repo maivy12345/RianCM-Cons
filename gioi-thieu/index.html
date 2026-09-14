@@ -140,10 +140,11 @@
   .dropdown a.is-active { background: var(--navy-50); color: var(--orange-500); }
 
   .nav-cta {
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     background: var(--navy-900); color: #fff;
     padding: 12px 18px; border-radius: 999px;
     font-weight: 700; font-size: .92rem;
+    white-space: nowrap; text-align: center; flex-shrink: 0;
     transition: transform .15s, background .15s;
   }
   .nav-cta:hover { background: var(--orange-500); transform: translateY(-1px); }
@@ -164,11 +165,12 @@
   .burger span::after  { position: absolute; top: 6px;  }
 
   /* ===== BUTTONS ===== */
-  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .btn {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     padding: 14px 24px; border-radius: 999px;
-    font-weight: 700; font-size: .95rem;
+    font-weight: 700; font-size: .95rem; line-height: 1.2;
+    white-space: nowrap; text-align: center; flex-shrink: 0;
     transition: transform .15s, background .15s, color .15s, box-shadow .15s;
     border: 1.5px solid transparent;
     cursor: pointer;
@@ -187,7 +189,7 @@
     background: var(--navy-900); color: #fff;
   }
   .btn-dark:hover { background: var(--orange-500); transform: translateY(-2px); }
-  .btn svg { width: 16px; height: 16px; }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
   /* ===== PAGE BANNER (sub-hero) ===== */
   .page-banner {
@@ -686,6 +688,8 @@
     .timeline { grid-template-columns: 1fr; }
     .footer .container > .grid { grid-template-columns: 1fr; }
     .cta-inner { grid-template-columns: 1fr; padding: 6px 24px; }
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .cta-row .btn { width: 100%; justify-content: center; }
     .cta-band .cta-row { justify-content: flex-start; }
     .cta-band { margin-inline: 0; border-radius: 16px; }
     .section-head { margin-bottom: 40px; }
