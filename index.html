@@ -847,11 +847,12 @@
   /* ===== PROJECTS ===== */
   .projects { background: linear-gradient(180deg, #F7F9FE 0%, #fff 100%); }
   .projects-head {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
-    margin: 0 auto 40px; max-width: 900px;
+    display: flex; flex-direction: column; align-items: center; gap: 28px;
+    margin: 0 0 48px;
   }
+  .projects-head .section-head { margin: 0; text-align: center; max-width: none; }
   .projects-filters {
-    display: flex; gap: 8px; flex-wrap: wrap;
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
   }
   .filter {
     display: inline-flex; align-items: center; justify-content: center;
@@ -864,7 +865,7 @@
   }
   .filter.active, .filter:hover { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
   .project-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
   }
   .project-card {
     position: relative; border-radius: 16px; overflow: hidden;
@@ -950,11 +951,8 @@
   }
 
   /* ===== PARTNERS STRIP ===== */
-  .partners { background: #fff; border-top: 1px solid var(--line); padding-block: 60px; }
-  .partners h4 {
-    text-align: center; color: var(--ink-500); font-size: .78rem;
-    letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-bottom: 26px;
-  }
+  .partners { background: #fff; border-top: 1px solid var(--line); }
+  .partners .section-head { margin-bottom: 40px; }
   .partners-grid {
     display: grid; grid-template-columns: repeat(2, minmax(200px, 280px));
     gap: 20px; justify-content: center;
@@ -1206,7 +1204,8 @@
     .partners-grid { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
     .footer .container > .grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
-    .projects-head { flex-direction: column; align-items: flex-start; }
+    .projects-head { align-items: center; }
+    .projects-filters { justify-content: center; }
     .cta-band { margin-inline: 0; border-radius: 16px; }
     .cta-inner { padding: 20px 22px; }
     .section-head { margin-bottom: 40px; }
@@ -1636,7 +1635,7 @@
 <section id="projects" class="projects">
   <div class="container">
     <div class="projects-head">
-      <div class="section-head left" style="margin:0;">
+      <div class="section-head">
         <span class="eyebrow">Dự án tiêu biểu</span>
         <h2>Những dự án RianCM Cons đã tham gia</h2>
       </div>
@@ -1649,14 +1648,13 @@
       </div>
     </div>
 
-    <div class="project-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin-inline: auto;">
+    <div class="project-grid">
       <article class="project-card">
         <div class="project-cover has-photo">
           <img class="cover-photo" src="/assets/project-tram-bess.jpg" alt="Hạ tầng điện — trạm KCN Nam Thăng Bình" width="1400" height="781" />
           <div class="badge" style="background: var(--navy-900); color: #fff;">Quản lý dự án</div>
         </div>
         <div class="project-body">
-          <small>Đà Nẵng • Hạ tầng điện công nghiệp</small>
           <h3>Đường dây và trạm biến áp KCN Nam Thăng Bình</h3>
           <p>RianCM thực hiện tư vấn quản lý dự án và giám sát thi công công trình đường dây, trạm biến áp phục vụ hệ thống hạ tầng điện của KCN Nam Thăng Bình; kiểm soát kỹ thuật, chất lượng, tiến độ và an toàn.</p>
           <div class="project-meta">
@@ -1672,7 +1670,6 @@
           <div class="badge" style="background: var(--navy-900); color: #fff;">Văn phòng · Cải tạo</div>
         </div>
         <div class="project-body">
-          <small>TP.HCM • Văn phòng • Tư vấn cải tạo</small>
           <h3>Trụ sở BIN Corporation Group</h3>
           <p>RianCM cung cấp dịch vụ tư vấn cải tạo nội thất văn phòng, tối ưu công năng, môi trường làm việc và trải nghiệm sử dụng; phối hợp yêu cầu thiết kế, kỹ thuật và thi công để bảo đảm tính thống nhất của không gian.</p>
           <div class="project-meta">
@@ -1694,7 +1691,10 @@
 <!-- ============ PARTNERS ============ -->
 <section id="partners" class="partners">
   <div class="container">
-    <h4>Đối tác &amp; khách hàng</h4>
+    <div class="section-head">
+      <span class="eyebrow">Hợp tác cùng RianCM Cons</span>
+      <h2>Đối tác &amp; khách hàng</h2>
+    </div>
     <div class="partners-grid">
       <div class="partner-cell">
         <img src="/assets/NTB-logo.svg" alt="Logo NTB — Nam Thăng Bình" style="max-height: 56px; width: auto; margin: 0 auto;" />

@@ -1,9 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#08132E">
-<title>Về RianCM Cons — Tư vấn quản lý xây dựng Góc Vuông</title>
-<meta name="description" content="RianCM Cons — Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông. Chúng tôi làm việc bên phía chủ đầu tư, kiểm soát chất lượng, tiến độ, chi phí và rủi ro cùng lúc.">
+<title>Giới thiệu chung — RianCM Cons | Tư vấn quản lý xây dựng Góc Vuông</title>
+<meta name="description" content="Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM) — tư vấn quản lý xây dựng với triết lý Right Angle: chuẩn xác, minh bạch và kỷ luật.">
 <link rel="icon" type="image/svg+xml" href="/assets/logofav.svg">
+<link rel="stylesheet" href="/assets/styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -278,136 +279,92 @@
   .section-head p { color: var(--ink-500); font-size: 1.05rem; max-width: 720px; margin-inline: auto; }
   .section-head.left { text-align: left; margin-inline: 0; max-width: 720px; }
 
-  /* ===== INTRO / CHÚNG TÔI LÀ AI ===== */
+  /* ===== INTRO / GIỚI THIỆU CHUNG ===== */
   .intro { background: var(--bg); }
   .intro-grid {
-    display: grid; grid-template-columns: 1.15fr 1fr;
-    gap: 64px; align-items: center;
+    display: grid; grid-template-columns: 1.1fr .9fr;
+    gap: 56px; align-items: center;
   }
   .intro-text h2 span { color: var(--orange-500); }
   .intro-text p { font-size: 1.02rem; }
+  .intro-text p b { color: var(--navy-900); }
   .intro-visual {
     position: relative;
-    aspect-ratio: 5/5;
     border-radius: 22px;
     overflow: hidden;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(245,180,23,.18), transparent 50%),
-      linear-gradient(135deg, #0F1F44 0%, #17295A 60%, #22366F 100%);
     box-shadow: var(--shadow-lg);
-    color: #EAF0FF;
-    padding: 32px;
-    display: flex; flex-direction: column; justify-content: space-between;
+    aspect-ratio: 4/5;
+    background: var(--navy-900);
   }
-  .intro-visual::before {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
+  .intro-visual img {
+    width: 100%; height: 100%;
+    object-fit: cover;
   }
-  .intro-visual .ra-symbol {
-    position: relative; margin: auto;
-    width: 62%; aspect-ratio: 1;
-    display: grid; place-items: center;
-  }
-  .intro-visual .ra-symbol svg {
-    width: 62%; height: 62%;
-    color: var(--gold-500);
-    filter: drop-shadow(0 12px 30px rgba(245,180,23,.35));
-  }
-  .intro-visual .ra-corner {
-    position: absolute; width: 100%; height: 100%;
-    border-top: 5px solid rgba(255,255,255,.14);
-    border-left: 5px solid rgba(255,255,255,.14);
-    border-radius: 20px 0 0 0;
-  }
-  .intro-visual .ra-corner::after {
-    content:""; position: absolute; left: -8px; top: -8px;
-    width: 14px; height: 14px; background: var(--orange-500);
-    border-radius: 999px;
-  }
-  .intro-visual .brand-card {
-    position: relative; z-index: 2;
-    background: rgba(11,18,32,.55);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,.08);
+  .intro-visual .caption {
+    position: absolute; left: 16px; right: 16px; bottom: 16px;
+    background: rgba(8,19,46,.78);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.1);
     border-radius: 14px;
-    padding: 16px 20px;
-    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px;
+    color: #EAF0FF;
   }
-  .intro-visual .brand-card .k {
-    width: 42px; height: 42px; flex: none; border-radius: 10px;
-    background: var(--gold-500); color: var(--navy-950);
-    display: grid; place-items: center; font-weight: 800;
-  }
-  .intro-visual .brand-card .k svg { width: 20px; height: 20px; }
-  .intro-visual .brand-card b { color: #fff; display: block; font-size: 1rem; }
-  .intro-visual .brand-card small { color: #B4BFDA; font-size: .82rem; }
-
-  .intro-visual .tags {
-    position: relative; z-index: 2;
-    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
-  }
-  .intro-visual .tags span {
-    font-family: 'Manrope', sans-serif;
-    font-size: .72rem; letter-spacing: .18em;
-    text-transform: uppercase; font-weight: 700;
-    padding: 6px 12px; border-radius: 999px;
-    color: #DDE4F3; background: rgba(255,255,255,.06);
-    border: 1px solid rgba(120,180,255,.22);
+  .intro-visual .caption b { display: block; color: #fff; font-size: .95rem; margin-bottom: 2px; }
+  .intro-visual .caption small { color: #B4BFDA; font-size: .8rem; }
+  .intro-visual .corner-mark {
+    position: absolute; top: 18px; left: 18px;
+    width: 42px; height: 42px;
+    border-top: 3px solid var(--gold-500);
+    border-left: 3px solid var(--gold-500);
   }
 
-  /* ===== PRINCIPLES / CÁCH LÀM VIỆC ===== */
-  .principles {
+  /* ===== VALUES / GIÁ TRỊ CỐT LÕI ===== */
+  .values {
     background:
-      linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(247,249,254,.92) 100%),
+      linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(247,249,254,.94) 100%),
       url("/assets/services-bg.jpg") center/cover no-repeat;
     position: relative;
   }
-  .principles .container { position: relative; z-index: 1; }
-  .principles-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+  .values .container { position: relative; z-index: 1; }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
   }
-  .principle-card {
+  .value-card {
     position: relative;
     background: #fff; border: 1px solid var(--line);
-    border-radius: 18px; padding: 28px 24px 26px;
-    min-height: 260px;
+    border-radius: 18px; padding: 30px 26px 28px;
     display: flex; flex-direction: column;
     transition: transform .25s, box-shadow .25s, border-color .25s;
     overflow: hidden;
   }
-  .principle-card::before {
-    content:""; position: absolute; left: 24px; right: 24px; bottom: 0;
+  .value-card::before {
+    content:""; position: absolute; left: 26px; right: 26px; bottom: 0;
     height: 3px; background: var(--orange-500);
     transform: scaleX(0); transform-origin: left;
     transition: transform .3s;
   }
-  .principle-card:hover {
+  .value-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(15,31,68,.10);
     border-color: rgba(242,101,34,.25);
   }
-  .principle-card:hover::before { transform: scaleX(1); }
-  .principle-num {
-    position: absolute; top: 20px; right: 24px;
-    font-family: 'Manrope', sans-serif; font-size: 1.6rem; font-weight: 800;
-    color: rgba(15,31,68,.08); letter-spacing: -.03em;
-    line-height: 1;
+  .value-card:hover::before { transform: scaleX(1); }
+  .value-num {
+    position: absolute; top: 22px; right: 24px;
+    font-family: 'Manrope', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: rgba(15,31,68,.08); letter-spacing: -.03em; line-height: 1;
   }
-  .principle-icon {
+  .value-icon {
     width: 54px; height: 54px; border-radius: 14px;
     background: var(--navy-900); color: var(--gold-500);
     display: grid; place-items: center; margin-bottom: 20px;
     box-shadow: 0 10px 24px rgba(15,31,68,.15);
   }
-  .principle-icon svg { width: 24px; height: 24px; }
-  .principle-card h3 { margin-bottom: 10px; font-size: 1.05rem; }
-  .principle-card p { font-size: .92rem; color: var(--ink-500); line-height: 1.6; margin: 0; }
+  .value-icon svg { width: 24px; height: 24px; }
+  .value-card h3 { margin-bottom: 10px; font-size: 1.12rem; }
+  .value-card p { font-size: .94rem; color: var(--ink-500); line-height: 1.65; margin: 0; }
 
-  /* ===== VMV — VISION / MISSION / VALUES ===== */
+  /* ===== VMV — TẦM NHÌN / SỨ MỆNH ===== */
   .vmv {
     background:
       linear-gradient(180deg, rgba(5,10,25,.65) 0%, rgba(8,19,46,.8) 100%),
@@ -429,16 +386,15 @@
   .vmv .section-head p { color: #B7C2DE; max-width: 720px; margin-inline: auto; }
 
   .vmv-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
   }
   .vmv-card {
     position: relative;
     background: linear-gradient(180deg, rgba(15,31,68,.55) 0%, rgba(8,19,46,.62) 100%);
     border: 1px solid rgba(245,180,23,.18);
     border-radius: 20px;
-    padding: 32px 28px 30px;
+    padding: 36px 32px 32px;
     backdrop-filter: blur(6px);
-    min-height: 320px;
     display: flex; flex-direction: column;
     overflow: hidden;
     isolation: isolate;
@@ -473,12 +429,12 @@
     letter-spacing: .3em; text-transform: uppercase;
   }
   .vmv-card h3 {
-    color: #fff; margin-bottom: 12px;
-    font-size: 1.24rem; line-height: 1.35;
+    color: #fff; margin-bottom: 14px;
+    font-size: 1.28rem; line-height: 1.35;
   }
   .vmv-card p {
-    color: #B7C2DE; font-size: .96rem;
-    line-height: 1.7; margin: 0;
+    color: #B7C2DE; font-size: .98rem;
+    line-height: 1.75; margin: 0;
   }
   .vmv-watermark {
     position: absolute; right: 18px; bottom: 6px;
@@ -489,111 +445,143 @@
     -webkit-text-stroke: 1px rgba(255,255,255,.08);
     pointer-events: none;
   }
-  .vmv-values {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    margin-top: 6px;
-  }
-  .vmv-values span {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 6px 12px;
-    border: 1px solid rgba(245,180,23,.35);
-    background: rgba(245,180,23,.06);
-    color: var(--gold-400);
-    font-weight: 700; font-size: .84rem;
-    border-radius: 999px;
-  }
-  .vmv-values span::before {
-    content:""; width: 6px; height: 6px; border-radius: 999px;
-    background: var(--gold-400);
-  }
 
-  /* ===== TIMELINE / LỊCH SỬ HÌNH THÀNH ===== */
-  .timeline-section { background: #fff; }
-  .timeline-wrap {
-    position: relative;
-    margin-top: 16px;
+  /* ===== FIELDS / LĨNH VỰC ===== */
+  .fields { background: #fff; }
+  .fields-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
   }
-  .timeline-wrap::before {
-    content:""; position: absolute; left: 5%; right: 5%; top: 30px;
-    border-top: 2px dashed var(--navy-100); z-index: 0;
-  }
-  .timeline {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 16px; position: relative;
-  }
-  .tl-step { position: relative; text-align: center; padding-top: 4px; }
-  .tl-dot {
-    position: relative; z-index: 1;
-    width: 60px; height: 60px; margin: 0 auto 20px;
-    display: grid; place-items: center;
-    background: #fff; border: 2px solid var(--navy-900);
-    border-radius: 50%; color: var(--navy-900);
-    font-weight: 800; font-family: 'Manrope', sans-serif; font-size: 1rem;
-    transition: background .2s, color .2s, border-color .2s;
-  }
-  .tl-step:hover .tl-dot { background: var(--gold-500); border-color: var(--gold-500); color: var(--navy-950); }
-  .tl-step h4 { color: var(--navy-900); font-size: 1rem; margin-bottom: 6px; font-family: 'Manrope', sans-serif; }
-  .tl-step p { font-size: .88rem; color: var(--ink-500); margin: 0; }
-  .tl-tbd {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'Manrope', sans-serif;
-    font-size: .68rem; letter-spacing: .22em; font-weight: 700;
-    text-transform: uppercase; color: var(--ink-400);
-    margin-top: 12px;
-  }
-  .tl-tbd::before { content:""; width: 6px; height: 6px; background: var(--ink-400); border-radius: 999px; }
-
-  .tl-note {
-    max-width: 720px; margin: 46px auto 0;
-    text-align: center;
-    padding: 18px 22px;
-    border: 1px dashed var(--navy-100);
+  .field-block {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 36px 32px;
     background: var(--navy-50);
-    border-radius: 14px;
-    color: var(--ink-500);
-    font-size: .92rem;
-  }
-  .tl-note b { color: var(--navy-900); }
-
-  /* ===== SIGNATURE STRIP — Right Angle motto ===== */
-  .signature {
-    background: var(--bg);
-    padding-block: 60px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .signature-inner {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center;
-  }
-  .signature-mark {
-    width: 90px; height: 90px; border: 4px solid var(--navy-900);
-    border-radius: 12px;
-    display: grid; place-items: center;
     position: relative;
+    overflow: hidden;
   }
-  .signature-mark svg { width: 40px; height: 40px; color: var(--gold-500); }
-  .signature-mark::after {
-    content:""; position: absolute; right: -6px; bottom: -6px;
-    width: 18px; height: 18px; background: var(--orange-500); border-radius: 999px;
+  .field-block.dark {
+    background:
+      linear-gradient(145deg, #0F1F44 0%, #17295A 100%);
+    border-color: transparent;
+    color: #EAF0FF;
   }
-  .signature-text b {
-    display: block; color: var(--navy-900);
+  .field-block.dark h2 { color: #fff; }
+  .field-block.dark p { color: #B7C2DE; }
+  .field-block .eyebrow { margin-bottom: 14px; }
+  .field-block.dark .eyebrow { color: var(--gold-400); }
+  .field-block.dark .eyebrow::before { background: var(--gold-400); }
+  .field-block h2 { font-size: clamp(1.35rem, 2.2vw, 1.75rem); margin-bottom: 14px; }
+  .field-block p { margin: 0; font-size: .98rem; line-height: 1.7; }
+  .field-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 22px;
+  }
+  .field-tags span {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em;
-    margin-bottom: 4px;
+    font-size: .78rem; font-weight: 700;
+    letter-spacing: .04em;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--navy-900);
   }
-  .signature-text b span { color: var(--orange-500); }
-  .signature-text p { margin: 0; color: var(--ink-500); font-size: .98rem; }
-  .signature-script {
-    font-family: 'Caveat', cursive;
-    font-size: 2rem; font-weight: 700;
-    color: var(--gold-500);
-    transform: rotate(-4deg);
-    line-height: 1;
-    white-space: nowrap;
+  .field-block.dark .field-tags span {
+    background: rgba(255,255,255,.06);
+    border-color: rgba(120,180,255,.22);
+    color: #DDE4F3;
   }
 
-  /* CTA BAND uses shared styles from assets/styles.css */
+  /* ===== CAPABILITIES / NĂNG LỰC CỐT LÕI ===== */
+  .capabilities {
+    background: var(--bg);
+  }
+  .cap-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .cap-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 20px 24px;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    height: 100%;
+  }
+  .cap-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(245,180,23,.45);
+  }
+  .cap-index {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800; font-size: .78rem;
+    letter-spacing: .18em; color: var(--orange-500);
+    margin-bottom: 14px;
+  }
+  .cap-card h3 {
+    font-size: 1rem; margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .cap-card p {
+    font-size: .88rem; color: var(--ink-500);
+    line-height: 1.6; margin: 0;
+  }
+
+  /* ===== CTA BANNER (match home) ===== */
+  .cta-band {
+    padding: 0;
+    background:
+      linear-gradient(90deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.55) 32%, transparent 55%),
+      url("/assets/cta-band.png") right center / cover no-repeat,
+      linear-gradient(120deg, #08132E 0%, #17295A 100%);
+    color: #fff;
+    border-radius: 24px;
+    margin-block: 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .cta-inner {
+    display: block;
+    padding: 64px 56px;
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+  .cta-band h2 span.accent { white-space: nowrap; }
+  .cta-band .eyebrow { margin-bottom: 22px; }
+  .cta-band h2 {
+    color: #fff;
+    font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .cta-band h2 .accent { color: var(--gold-400); }
+  .cta-band p {
+    color: #B7C2E0; margin: 0 0 32px;
+    max-width: 480px;
+  }
+  .cta-band .cta-row {
+    justify-content: flex-start;
+    margin-bottom: 0;
+    gap: 14px;
+  }
+  .cta-band .btn { padding: 15px 28px; font-size: .98rem; }
+  .cta-band .btn-primary svg:first-child {
+    background: transparent; padding: 0;
+    width: 18px; height: 18px; color: var(--navy-950);
+  }
+
+  @media (max-width: 900px) {
+    .cta-band {
+      min-height: auto;
+      background:
+        linear-gradient(180deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.35) 100%),
+        url("/assets/cta-band.png") center bottom / cover no-repeat,
+        linear-gradient(120deg, #08132E 0%, #17295A 100%);
+    }
+    .cta-inner { padding: 44px 28px; max-width: 100%; }
+  }
 
   /* ===== FOOTER ===== */
   .footer { background: var(--navy-950); color: #B4BFDA; padding-block: 70px 30px; }
@@ -634,14 +622,14 @@
 
   @media (max-width: 1024px) {
     .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-    .principles-grid { grid-template-columns: repeat(2, 1fr); }
+    .intro-visual { aspect-ratio: 16/11; max-height: 420px; }
+    .values-grid { grid-template-columns: 1fr; }
     .vmv-grid { grid-template-columns: 1fr; }
-    .timeline { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    .timeline-wrap::before { display: none; }
+    .fields-split { grid-template-columns: 1fr; }
+    .cap-grid { grid-template-columns: repeat(2, 1fr); }
     .footer .container > .grid { grid-template-columns: 1fr 1fr; }
     .nav-cta { display: none; }
     .burger { display: inline-flex; }
-    .signature-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
     /* Mobile drop-in menu */
     nav {
       position: fixed; top: 0; right: 0; height: 100dvh; width: min(320px, 82vw);
@@ -667,18 +655,15 @@
     section { padding-block: 56px; }
     .container { padding-inline: 18px; }
     .page-banner { padding-block: 48px 60px; }
-    .principles-grid { grid-template-columns: 1fr; }
-    .timeline { grid-template-columns: 1fr; }
+    .cap-grid { grid-template-columns: 1fr; }
     .footer .container > .grid { grid-template-columns: 1fr; }
-    .cta-inner { grid-template-columns: 1fr; padding: 6px 24px; }
     .cta-row { flex-direction: column; align-items: stretch; }
     .cta-row .btn { width: 100%; justify-content: center; }
     .cta-band .cta-row { justify-content: flex-start; }
     .cta-band { margin-inline: 0; border-radius: 16px; }
+    .cta-inner { padding: 44px 28px; }
     .section-head { margin-bottom: 40px; }
-    .signature-mark { width: 72px; height: 72px; }
-    .signature-mark svg { width: 32px; height: 32px; }
-    .signature-text b { font-size: 1.2rem; }
+    .field-block { padding: 28px 22px; }
     /* Topbar compact */
     .topbar { font-size: .78rem; }
     .topbar-inner { justify-content: center; gap: 8px; padding-block: 6px; }
@@ -722,7 +707,7 @@
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
           </a>
           <div class="dropdown">
-            <a href="/gioi-thieu/gioi-thieu-chung/">Giới thiệu chung</a>
+            <a href="/gioi-thieu/" class="is-active">Giới thiệu chung</a>
             <a href="/gioi-thieu/nhan-luc/">Nhân lực / Đội ngũ</a>
             <a href="/gioi-thieu/nang-luc-tieu-chuan/">Năng lực &amp; Tiêu chuẩn áp dụng</a>
             <a href="/gioi-thieu/doi-tac/">Đối tác / Khách hàng</a>
@@ -809,40 +794,43 @@
       <span class="here">Giới thiệu chung</span>
     </nav>
 
-    <h1>Về <span class="accent">RianCM Cons</span></h1>
+    <h1>Giới thiệu <span class="accent">chung</span></h1>
     <p class="lead">
-      Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons Co., Ltd) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp, gồm quản lý dự án, giám sát thi công, tư vấn đầu tư, tư vấn thiết kế và quản lý chi phí.
+      Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM) — đơn vị tư vấn quản lý xây dựng với triết lý “Right Angle”: chuẩn xác, minh bạch và kỷ luật.
     </p>
 
     <div class="fact-chips">
       <span class="chip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        TP.HCM &amp; toàn quốc
-      </span>
-      <span class="chip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>
-        Dân dụng &amp; Công nghiệp
-      </span>
-      <span class="chip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/></svg>
-        5 mảng dịch vụ tư vấn
+        Chuẩn xác
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="M12 8v5M12 16h.01"/></svg>
+        Minh bạch
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><path d="M8 8h6v6"/></svg>
+        Kỷ luật
       </span>
     </div>
   </div>
 </section>
 
-<!-- ============ INTRO / CHÚNG TÔI LÀ AI ============ -->
+<!-- ============ INTRO / GIỚI THIỆU CHUNG ============ -->
 <section class="intro">
   <div class="container">
     <div class="intro-grid">
       <div class="intro-text">
-        <span class="eyebrow">Chúng tôi là ai</span>
-        <h2>Làm việc bên phía <span>chủ đầu tư</span> — vì một dự án đi đúng đường</h2>
+        <span class="eyebrow">Tổng quan doanh nghiệp</span>
+        <h2>Đồng hành cùng Chủ đầu tư — kiểm soát dự án <span>chủ động</span></h2>
         <p>
-          RianCM Cons làm việc bên phía chủ đầu tư, giúp một dự án đi từ ý tưởng đến khi đưa vào sử dụng mà vẫn giữ được chất lượng, đúng tiến độ và trong ngân sách.
+          Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM) là đơn vị chuyên cung cấp dịch vụ tư vấn quản lý xây dựng, được thành lập bởi đội ngũ kỹ sư và chuyên gia có kinh nghiệm thực tiễn trong ngành.
         </p>
         <p>
-          Tên thương hiệu — <b>Góc Vuông / Right Angle</b> — phản ánh cách chúng tôi tiếp cận công việc: làm đúng chuẩn ngay từ đầu. Chúng tôi làm việc theo tư duy thực tế của người trực tiếp triển khai — bám sát hiện trường, kiểm soát chất lượng, tiến độ, chi phí và rủi ro để chủ đầu tư luôn nắm được dự án đang ở đâu.
+          Với triết lý “Right Angle” — lấy sự chuẩn xác, minh bạch và kỷ luật làm nền tảng, RianCM đồng hành cùng Chủ đầu tư trong việc tổ chức, kiểm soát và phối hợp các bên tham gia dự án, từ giai đoạn chuẩn bị đến khi công trình hoàn thành và bàn giao.
+        </p>
+        <p>
+          RianCM tập trung kiểm soát những yếu tố ảnh hưởng trực tiếp đến hiệu quả đầu tư, bao gồm chất lượng, tiến độ, chi phí và an toàn. Mỗi dự án được quản lý trên cơ sở thông tin rõ ràng, trách nhiệm cụ thể và khả năng nhận diện sớm các vấn đề; qua đó góp phần giúp Chủ đầu tư kiểm soát dự án một cách chủ động và hiệu quả.
         </p>
         <div class="cta-row" style="margin-top: 8px;">
           <a href="/dich-vu/" class="btn btn-dark">
@@ -855,94 +843,25 @@
         </div>
       </div>
 
-      <div class="intro-visual" aria-hidden="true">
-        <div class="ra-corner"></div>
-        <div class="ra-symbol">
-          <!-- right-angle icon: two segments meeting at 90° -->
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 18 V82 H82" />
-            <path d="M18 42 H32 V56" stroke-width="4" opacity=".6"/>
-            <circle cx="18" cy="18" r="4" fill="currentColor" stroke="none"/>
-            <circle cx="18" cy="82" r="4" fill="currentColor" stroke="none"/>
-            <circle cx="82" cy="82" r="4" fill="currentColor" stroke="none"/>
-          </svg>
-        </div>
-        <div class="brand-card">
-          <div class="k">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 4v16h16"/><path d="M8 8h6v6"/></svg>
-          </div>
-          <div>
-            <b>Right Angle — Góc Vuông</b>
-            <small>Biểu tượng của sự chuẩn xác, ngay ngắn và đáng tin</small>
-          </div>
-        </div>
-        <div class="tags">
-          <span>Chuẩn xác</span>
-          <span>Minh bạch</span>
-          <span>Trách nhiệm</span>
-          <span>Thực tế</span>
+      <div class="intro-visual">
+        <span class="corner-mark" aria-hidden="true"></span>
+        <img src="/assets/services-crane.jpg" alt="Công trường xây dựng — RianCM đồng hành quản lý dự án" width="800" height="1000" loading="lazy" decoding="async" />
+        <div class="caption">
+          <b>Right Angle — Góc Vuông</b>
+          <small>Chuẩn xác · Minh bạch · Kỷ luật</small>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PRINCIPLES / CÁCH LÀM VIỆC ============ -->
-<section class="principles">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Cách chúng tôi làm việc</span>
-      <h2>Kiểm soát cùng lúc — không tách rời</h2>
-      <p>Chúng tôi kiểm soát chất lượng, tiến độ, chi phí và rủi ro cùng lúc thay vì tách rời — bám sát hiện trường và giữ chủ đầu tư luôn nắm được tình trạng dự án qua báo cáo rõ ràng.</p>
-    </div>
-
-    <div class="principles-grid">
-      <article class="principle-card">
-        <div class="principle-num">01</div>
-        <div class="principle-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
-        </div>
-        <h3>Kiểm soát 3 trụ cột</h3>
-        <p>Chất lượng — tiến độ — chi phí ràng buộc lẫn nhau, được quản lý cùng lúc để thay đổi ở khâu này không âm thầm phá vỡ khâu kia.</p>
-      </article>
-
-      <article class="principle-card">
-        <div class="principle-num">02</div>
-        <div class="principle-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Bám sát hiện trường</h3>
-        <p>Ra quyết định dựa trên dữ liệu thực tế tại công trường — không chỉ dựa vào bản vẽ và báo cáo trên bàn giấy.</p>
-      </article>
-
-      <article class="principle-card">
-        <div class="principle-num">03</div>
-        <div class="principle-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="M12 8v5M12 16h.01"/></svg>
-        </div>
-        <h3>Quản trị rủi ro chủ động</h3>
-        <p>Nhận diện rủi ro kỹ thuật, tiến độ, chi phí từ sớm và đề xuất phương án xử lý — thay vì chỉ báo cáo khi đã xảy ra.</p>
-      </article>
-
-      <article class="principle-card">
-        <div class="principle-num">04</div>
-        <div class="principle-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>
-        </div>
-        <h3>Báo cáo minh bạch</h3>
-        <p>Chủ đầu tư nắm tình trạng dự án qua báo cáo định kỳ, rõ ràng — đủ cơ sở để ra quyết định nhanh và đúng.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ VMV — TẦM NHÌN / SỨ MỆNH / GIÁ TRỊ ============ -->
+<!-- ============ VMV — TẦM NHÌN / SỨ MỆNH ============ -->
 <section class="vmv">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow" style="color:var(--orange-500);">Định hướng của chúng tôi</span>
-      <h2>Tầm nhìn — Sứ mệnh — <span class="accent">Giá trị cốt lõi</span></h2>
-      <p>Ba mảnh ghép định hình cách RianCM Cons chọn dự án, chọn cách làm và chọn cách hành xử với chủ đầu tư.</p>
+      <span class="eyebrow" style="color:var(--orange-500);">Định hướng</span>
+      <h2>Tầm nhìn &amp; <span class="accent">Sứ mệnh</span></h2>
+      <p>Hai trụ cột định hình cách RianCM đồng hành cùng Chủ đầu tư trên mọi dự án.</p>
     </div>
 
     <div class="vmv-grid">
@@ -953,8 +872,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
         </div>
-        <h3>Đơn vị tư vấn được chủ đầu tư tin tưởng nhờ sự chuẩn xác và minh bạch</h3>
-        <p>Trở thành đơn vị tư vấn quản lý xây dựng được chủ đầu tư tin tưởng nhờ sự chuẩn xác và minh bạch trong từng quyết định trên dự án.</p>
+        <h3>Đơn vị tư vấn quản lý xây dựng hàng đầu Việt Nam</h3>
+        <p>Trở thành đơn vị tư vấn quản lý xây dựng hàng đầu Việt Nam, được Chủ đầu tư tin cậy bởi năng lực quản lý vững chắc và sự chuẩn xác trong từng giai đoạn triển khai dự án.</p>
         <span class="vmv-watermark" aria-hidden="true">01</span>
       </article>
 
@@ -965,72 +884,134 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 15 8l6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
           </div>
         </div>
-        <h3>Giúp chủ đầu tư kiểm soát dự án và hạn chế rủi ro</h3>
-        <p>Đồng hành cùng chủ đầu tư trong việc kiểm soát dự án và hạn chế rủi ro, để mỗi công trình hoàn thành đúng chất lượng, tiến độ và chi phí.</p>
+        <h3>Đồng hành tổ chức, điều phối và kiểm soát dự án</h3>
+        <p>Đồng hành cùng Chủ đầu tư trong việc tổ chức, điều phối và kiểm soát dự án bằng những giải pháp quản lý phù hợp với thực tế; góp phần bảo đảm chất lượng, tiến độ, chi phí, an toàn và hiệu quả đầu tư của công trình.</p>
         <span class="vmv-watermark" aria-hidden="true">02</span>
-      </article>
-
-      <article class="vmv-card">
-        <div class="vmv-head">
-          <span class="vmv-label">Giá trị cốt lõi</span>
-          <div class="vmv-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-        </div>
-        <h3>Bốn nguyên tắc dẫn hướng mọi công việc</h3>
-        <p>Bộ giá trị chi phối cách chúng tôi tư vấn, kiểm soát chất lượng và cách hành xử với chủ đầu tư, nhà thầu và các bên liên quan.</p>
-        <div class="vmv-values">
-          <span>Chuẩn xác</span>
-          <span>Minh bạch</span>
-          <span>Trách nhiệm</span>
-          <span>Thực tế</span>
-        </div>
-        <span class="vmv-watermark" aria-hidden="true">03</span>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ TIMELINE / LỊCH SỬ HÌNH THÀNH ============ -->
-<section class="timeline-section">
+<!-- ============ GIÁ TRỊ CỐT LÕI ============ -->
+<section class="values">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Lịch sử hình thành</span>
-      <h2>Hành trình của RianCM Cons</h2>
-      <p>Các cột mốc chính trong hành trình hình thành và phát triển đội ngũ tư vấn quản lý xây dựng Góc Vuông.</p>
+      <span class="eyebrow">Giá trị cốt lõi</span>
+      <h2>Ba nguyên tắc dẫn hướng mọi công việc</h2>
+      <p>Chuẩn xác — Minh bạch — Kỷ luật là nền tảng triết lý “Right Angle” của RianCM.</p>
     </div>
 
-    <div class="timeline-wrap">
-      <div class="timeline">
-        <div class="tl-step">
-          <div class="tl-dot">01</div>
-          <h4>Thành lập</h4>
-          <p>Ra đời với định vị tư vấn quản lý xây dựng đứng bên phía chủ đầu tư.</p>
-          <span class="tl-tbd">Năm — đang cập nhật</span>
+    <div class="values-grid">
+      <article class="value-card">
+        <div class="value-num">01</div>
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
         </div>
-        <div class="tl-step">
-          <div class="tl-dot">02</div>
-          <h4>Dự án đầu tiên</h4>
-          <p>Bước vào thị trường với dự án tư vấn quản lý và giám sát đầu tiên.</p>
-          <span class="tl-tbd">Mốc — đang cập nhật</span>
+        <h3>Chuẩn xác</h3>
+        <p>RianCM đề cao tính chính xác trong thông tin, hồ sơ và đánh giá chuyên môn. Mỗi quyết định được đưa ra trên cơ sở dữ liệu cập nhật, yêu cầu kỹ thuật và thực tế triển khai dự án.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-num">02</div>
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>
         </div>
-        <div class="tl-step">
-          <div class="tl-dot">03</div>
-          <h4>Mở rộng dịch vụ</h4>
-          <p>Bổ sung tư vấn đầu tư, thiết kế và quản lý chi phí — trọn 5 mảng.</p>
-          <span class="tl-tbd">Mốc — đang cập nhật</span>
+        <h3>Minh bạch</h3>
+        <p>Thông tin, trách nhiệm và tình trạng công việc được trao đổi rõ ràng giữa các bên. Các vấn đề phát sinh được phản ánh trung thực, kịp thời và đi kèm phương án xử lý phù hợp.</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-num">03</div>
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
-        <div class="tl-step">
-          <div class="tl-dot">04</div>
-          <h4>Hôm nay</h4>
-          <p>Đồng hành cùng chủ đầu tư trong các dự án dân dụng và công nghiệp trên cả nước.</p>
-          <span class="tl-tbd">2026 &amp; tiếp tục</span>
-        </div>
-      </div>
+        <h3>Kỷ luật</h3>
+        <p>RianCM tuân thủ quy trình, tiêu chuẩn và cam kết đã thống nhất. Mỗi nhiệm vụ được theo dõi đến khi hoàn thành, với tinh thần trách nhiệm cao nhất đối với công việc và mục tiêu chung của dự án.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LĨNH VỰC HOẠT ĐỘNG & DỰ ÁN ============ -->
+<section class="fields">
+  <div class="container">
+    <div class="section-head left">
+      <span class="eyebrow">Phạm vi hoạt động</span>
+      <h2>Lĩnh vực hoạt động &amp; lĩnh vực dự án</h2>
+      <p>RianCM triển khai dịch vụ phù hợp từng giai đoạn dự án và đặc thù từng loại hình công trình.</p>
     </div>
 
-    <div class="tl-note">
-      <b>Đang cập nhật:</b> Năm thành lập và mốc thời gian chi tiết sẽ được RianCM Cons xác nhận và bổ sung khi có tài liệu chính thức.
+    <div class="fields-split">
+      <article class="field-block dark">
+        <span class="eyebrow">Lĩnh vực hoạt động</span>
+        <h2>Tư vấn quản lý xây dựng</h2>
+        <p>
+          RianCM hoạt động trong lĩnh vực tư vấn quản lý xây dựng, tập trung vào tư vấn quản lý dự án, giám sát thi công, quản lý chi phí và tư vấn đầu tư xây dựng. Các dịch vụ được triển khai phù hợp với từng giai đoạn và yêu cầu thực tế, hỗ trợ Chủ đầu tư kiểm soát dự án từ quá trình chuẩn bị đến nghiệm thu, bàn giao công trình.
+        </p>
+        <div class="field-tags">
+          <span>Quản lý dự án</span>
+          <span>Giám sát thi công</span>
+          <span>Quản lý chi phí</span>
+          <span>Tư vấn đầu tư</span>
+        </div>
+      </article>
+
+      <article class="field-block">
+        <span class="eyebrow">Lĩnh vực dự án</span>
+        <h2>Dân dụng &amp; Công nghiệp</h2>
+        <p>
+          RianCM tham gia các dự án dân dụng và công nghiệp, bao gồm nhà máy và công trình công nghiệp, nhà ở và khu phức hợp, thương mại và văn phòng, logistics và hạ tầng kỹ thuật. Phương án quản lý được xây dựng phù hợp với đặc điểm kỹ thuật, yêu cầu vận hành và mục tiêu của từng loại hình dự án.
+        </p>
+        <div class="field-tags">
+          <span>Nhà máy / Công nghiệp</span>
+          <span>Nhà ở / Khu phức hợp</span>
+          <span>Thương mại / Văn phòng</span>
+          <span>Logistics / Hạ tầng</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NĂNG LỰC CỐT LÕI ============ -->
+<section class="capabilities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Năng lực cốt lõi</span>
+      <h2>Năm năng lực tạo nên hiệu quả dự án</h2>
+      <p>Từ tổ chức toàn diện đến kiểm soát hiện trường, điều phối và quản trị rủi ro — mỗi năng lực phục vụ mục tiêu kiểm soát chủ động cho Chủ đầu tư.</p>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap-card">
+        <div class="cap-index">01</div>
+        <h3>Quản lý dự án toàn diện</h3>
+        <p>Tổ chức và kiểm soát xuyên suốt các giai đoạn của dự án, bảo đảm mục tiêu, phạm vi và trách nhiệm được xác định rõ ràng.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-index">02</div>
+        <h3>Quản lý thi công và giám sát hiện trường</h3>
+        <p>Theo dõi sát quá trình thi công, kiểm soát chất lượng, khối lượng, tiến độ và an toàn theo hồ sơ, tiêu chuẩn và yêu cầu được phê duyệt.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-index">03</div>
+        <h3>Khả năng điều phối dự án phức tạp</h3>
+        <p>Kết nối Chủ đầu tư, đơn vị thiết kế, nhà thầu, nhà cung cấp và các bên liên quan nhằm duy trì luồng thông tin thống nhất và xử lý kịp thời các điểm giao diện.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-index">04</div>
+        <h3>Kiểm soát chất lượng, tiến độ và chi phí</h3>
+        <p>Theo dõi các yếu tố ảnh hưởng trực tiếp đến hiệu quả dự án, nhận diện sai lệch và đề xuất phương án xử lý phù hợp.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-index">05</div>
+        <h3>Quản lý thông tin và rủi ro</h3>
+        <p>Tổ chức hệ thống báo cáo, hồ sơ và dữ liệu dự án rõ ràng; hỗ trợ Chủ đầu tư nhận diện vấn đề và đưa ra quyết định đúng thời điểm.</p>
+      </article>
     </div>
   </div>
 </section>
