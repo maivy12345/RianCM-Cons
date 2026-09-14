@@ -612,38 +612,6 @@
     margin-top: 18px;
   }
 
-  /* Card 04 style: dark image background with content overlaid */
-  .service-card.service-dark {
-    background:
-      linear-gradient(160deg, rgba(8,19,46,.82) 0%, rgba(8,19,46,.92) 100%),
-      url("/assets/services-dark.jpg") center/cover no-repeat;
-    color: #fff; border-color: transparent;
-  }
-  .service-card.service-dark h3 { color: #fff; }
-  .service-card.service-dark p { color: #C4CFE8; }
-  .service-card.service-dark .service-num { color: rgba(255,255,255,.08); font-size: 2.4rem; }
-  .service-card.service-dark .service-icon {
-    background: rgba(255,255,255,.08); color: var(--gold-400);
-    box-shadow: none;
-  }
-  .service-card.service-dark .service-link {
-    color: var(--gold-400);
-    background: transparent;
-    border-color: rgba(245,180,23,.4);
-  }
-  .service-card.service-dark .service-link:hover {
-    color: var(--navy-950);
-    background: var(--gold-400);
-    border-color: var(--gold-400);
-  }
-  .service-card.service-dark::before { background: var(--gold-400); }
-  .service-card.service-dark .photo-tag {
-    position: absolute; bottom: 22px; right: 28px;
-    font-family: 'Manrope', sans-serif;
-    font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
-    color: rgba(255,255,255,.5); text-align: right; line-height: 1.7;
-  }
-
   /* ===== WHY US ===== */
   .why {
     background:
@@ -1445,18 +1413,17 @@
         <span class="connector h" aria-hidden="true"></span>
       </article>
 
-      <!-- 04 with dark image background -->
-      <article class="service-card service-dark">
+      <!-- 04 -->
+      <article class="service-card">
         <div class="service-num">04</div>
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20l3-3M5 17l6-6"/><path d="M11 11 20 2l2 2-9 9z"/><path d="M14 14l6 6"/><path d="M6 20h.01"/></svg>
         </div>
         <h3>Tư vấn thiết kế</h3>
         <p>Tư vấn và kiểm soát hồ sơ thiết kế để phương án đáp ứng công năng, kỹ thuật và ngân sách, hạn chế chỉnh sửa khi thi công.</p>
-        <a href="#" class="service-link">Xem chi tiết
+        <a href="/dich-vu/tu-van-thiet-ke/" class="service-link">Xem chi tiết
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <span class="photo-tag">Từ ý tưởng<br>đến công trình<br>hiện thực</span>
         <span class="connector h" aria-hidden="true"></span>
       </article>
 
