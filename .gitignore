@@ -2,3 +2,11 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Original oversized photos (web uses compressed project-*.jpg)
+assets/TRAM BESS.png
+assets/VP Bin (2).png
+assets/IMG_8647.jpg
+assets/507B.png
+assets/549A.png
+assets/ChatGPT Image Sep 14, 2026, 08_44_00 AM.png
