@@ -272,7 +272,7 @@ section { padding-block: 92px; }
   padding: 0;
   background:
     linear-gradient(90deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.55) 32%, transparent 55%),
-    url("cta-band.png") right center / cover no-repeat,
+    url("cta-band.jpg") right center / cover no-repeat,
     linear-gradient(120deg, #08132E 0%, #17295A 100%);
   color: #fff;
   border-radius: 24px;
@@ -379,7 +379,7 @@ body.menu-open { overflow: hidden; }
     min-height: auto;
     background:
       linear-gradient(180deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.35) 100%),
-      url("cta-band.png") center bottom / cover no-repeat,
+      url("cta-band.jpg") center bottom / cover no-repeat,
       linear-gradient(120deg, #08132E 0%, #17295A 100%);
   }
   .cta-inner { padding: 44px 28px; max-width: 100%; }
