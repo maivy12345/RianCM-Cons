@@ -461,8 +461,11 @@ body.menu-open { overflow: hidden; }
   radial-gradient(closest-side at 30% 80%, rgba(245,180,23,.35), transparent 60%),
   linear-gradient(135deg, #0F1F44, #08132E); }
 .project-cover.pc-4 { background:
-  radial-gradient(closest-side at 70% 70%, rgba(120,190,255,.28), transparent 55%),
-  linear-gradient(135deg, #0F1F44, #17295A); }
+  radial-gradient(closest-side at 72% 32%, rgba(245,180,23,.45), transparent 58%),
+  radial-gradient(closest-side at 28% 78%, rgba(242,101,34,.32), transparent 55%),
+  linear-gradient(135deg, #17295A, #0F1F44); }
+.project-cover.pc-4 .mockicon { color: rgba(255,206,130,.92); }
+.project-cover.pc-4 .badge { background: var(--orange-500); color: #fff; }
 .project-cover.pc-5 { background:
   radial-gradient(closest-side at 20% 80%, rgba(242,101,34,.32), transparent 55%),
   linear-gradient(135deg, #17295A, #22366F); }

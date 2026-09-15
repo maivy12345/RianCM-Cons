@@ -827,17 +827,25 @@
     content:""; position: absolute; left: 5%; right: 5%; top: 30px;
     border-top: 2px dashed var(--navy-100); z-index: 0;
   }
-  .process-step { position: relative; text-align: center; }
+  .process-step { position: relative; text-align: center; --pcolor: var(--navy-900); --pbg: #fff; }
+  .process-step:nth-child(1) { --pcolor: #F5B417; --pbg: #FFF6DC; }
+  .process-step:nth-child(2) { --pcolor: #F26522; --pbg: #FFE7DA; }
+  .process-step:nth-child(3) { --pcolor: #E24C6A; --pbg: #FFE1E7; }
+  .process-step:nth-child(4) { --pcolor: #6D5CE0; --pbg: #E8E4FB; }
+  .process-step:nth-child(5) { --pcolor: #14B8A6; --pbg: #D8F4EF; }
   .process-step .pnum {
     position: relative; z-index: 1;
     width: 60px; height: 60px; margin: 0 auto 20px;
     display: grid; place-items: center;
-    background: #fff; border: 2px solid var(--navy-900);
-    border-radius: 50%; color: var(--navy-900);
+    background: var(--pbg); border: 2px solid var(--pcolor);
+    border-radius: 50%; color: var(--pcolor);
     font-weight: 800; font-family: 'Manrope'; font-size: 1.15rem;
+    transition: transform .2s ease, box-shadow .2s ease;
   }
   .process-step:hover .pnum {
-    background: var(--gold-500); border-color: var(--gold-500); color: var(--navy-950);
+    background: var(--pcolor); border-color: var(--pcolor); color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15,31,68,.15);
   }
   .process-step h4 {
     color: var(--navy-900); font-size: 1rem; margin-bottom: 6px; font-family: 'Manrope';
@@ -1702,6 +1710,9 @@
       <div class="partner-cell">
         <img src="/assets/Bin-Coration-logo-091023 1.svg" alt="Logo BIN Corporation Group" style="max-height: 48px; width: auto; margin: 0 auto;" />
       </div>
+      <div class="partner-cell">
+        <img src="/assets/PACINFRAX-944x944-M.png" alt="Logo PACINFRAX" style="max-height: 120px; width: auto; margin: 0 auto;" />
+      </div>
     </div>
   </div>
 </section>
@@ -1734,8 +1745,8 @@
     <div class="contact-grid">
       <div class="contact-info">
         <span class="eyebrow">Liên hệ RianCM Cons</span>
-        <h2>Cùng bàn về <span>dự án</span> của bạn</h2>
-        <p>Điền thông tin bên phải hoặc liên hệ trực tiếp với văn phòng của RianCM Cons tại TP.HCM. Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.</p>
+        <h2>Thảo luận về <span>dự án</span> của bạn</h2>
+        <p>Đăng ký thông tin hoặc liên hệ trực tiếp với văn phòng của RianCM Cons tại TP.HCM. Chúng tôi sẽ phản hồi trong 24 giờ làm việc.</p>
 
         <ul class="contact-list">
           <li>
