@@ -827,12 +827,7 @@
     content:""; position: absolute; left: 5%; right: 5%; top: 30px;
     border-top: 2px dashed var(--navy-100); z-index: 0;
   }
-  .process-step { position: relative; text-align: center; --pcolor: var(--navy-900); --pbg: #fff; }
-  .process-step:nth-child(1) { --pcolor: #F5B417; --pbg: #FFF6DC; }
-  .process-step:nth-child(2) { --pcolor: #F26522; --pbg: #FFE7DA; }
-  .process-step:nth-child(3) { --pcolor: #E24C6A; --pbg: #FFE1E7; }
-  .process-step:nth-child(4) { --pcolor: #6D5CE0; --pbg: #E8E4FB; }
-  .process-step:nth-child(5) { --pcolor: #14B8A6; --pbg: #D8F4EF; }
+  .process-step { position: relative; text-align: center; --pcolor: var(--gold-500); --pbg: var(--gold-100); }
   .process-step .pnum {
     position: relative; z-index: 1;
     width: 60px; height: 60px; margin: 0 auto 20px;
@@ -962,8 +957,8 @@
   .partners { background: #fff; border-top: 1px solid var(--line); }
   .partners .section-head { margin-bottom: 40px; }
   .partners-grid {
-    display: grid; grid-template-columns: repeat(2, minmax(200px, 280px));
-    gap: 20px; justify-content: center;
+    display: grid; grid-template-columns: repeat(3, minmax(180px, 240px));
+    gap: 20px; justify-content: center; align-items: center;
   }
   .partner-cell {
     padding: 18px 8px; text-align: center;
@@ -1176,7 +1171,7 @@
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .why-label { display: none; }
     .project-grid { grid-template-columns: repeat(2, 1fr); }
-    .partners-grid { grid-template-columns: repeat(2, minmax(180px, 260px)); }
+    .partners-grid { grid-template-columns: repeat(3, minmax(150px, 220px)); }
     .contact-grid { grid-template-columns: 1fr; }
     .footer .container > .grid { grid-template-columns: 1fr 1fr; }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -1330,7 +1325,7 @@
           <div class="dropdown">
             <a href="/du-an/quan-ly-du-an/">Quản lý dự án</a>
             <a href="/du-an/tu-van-giam-sat/">Tư vấn giám sát</a>
-            <a href="/du-an/tu-van-thiet-ke/">Tư vấn thiết kế</a>
+            <a href="/du-an/tu-van-dau-tu/">Tư vấn đầu tư</a>
             <a href="/du-an/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a>
           </div>
         </li>
@@ -1455,7 +1450,7 @@
       <div class="about-text">
         <span class="eyebrow">Về chúng tôi</span>
         <h2>RianCM Cons — làm đúng từ <span>góc vuông</span> đầu tiên</h2>
-        <p>Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp: quản lý dự án, giám sát thi công, tư vấn đầu tư, tư vấn thiết kế và quản lý chi phí.</p>
+        <p>Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp: quản lý dự án, giám sát thi công, tư vấn đầu tư và quản lý chi phí.</p>
         <p>Chúng tôi làm việc theo tư duy thực tế của người trực tiếp triển khai — bám sát hiện trường, kiểm soát chất lượng, tiến độ, chi phí và rủi ro để chủ đầu tư luôn nắm được dự án đang ở đâu.</p>
 
         <ul class="about-points">
@@ -1651,7 +1646,7 @@
         <button class="filter active">Tất cả</button>
         <button class="filter">Quản lý dự án</button>
         <button class="filter">Giám sát thi công</button>
-        <button class="filter">Tư vấn thiết kế</button>
+        <button class="filter">Tư vấn đầu tư</button>
         <button class="filter">Quản lý chi phí</button>
       </div>
     </div>
