@@ -465,7 +465,6 @@ body.menu-open { overflow: hidden; }
   radial-gradient(closest-side at 28% 78%, rgba(242,101,34,.32), transparent 55%),
   linear-gradient(135deg, #17295A, #0F1F44); }
 .project-cover.pc-4 .mockicon { color: rgba(255,206,130,.92); }
-.project-cover.pc-4 .badge { background: var(--orange-500); color: #fff; }
 .project-cover.pc-5 { background:
   radial-gradient(closest-side at 20% 80%, rgba(242,101,34,.32), transparent 55%),
   linear-gradient(135deg, #17295A, #22366F); }
@@ -496,7 +495,7 @@ body.menu-open { overflow: hidden; }
     linear-gradient(rgba(15,31,68,.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(15,31,68,.06) 1px, transparent 1px);
 }
-.project-cover.pc-light .badge { background: var(--navy-900); color: #fff; }
+.project-cover.pc-light .badge { background: var(--orange-500); color: #fff; }
 .project-cover .brand-logo-wrap {
   position: absolute; inset: 0; display: grid; place-items: center;
   padding: 32px 40px;
@@ -512,8 +511,8 @@ body.menu-open { overflow: hidden; }
 .project-cover .mockicon svg { width: 60px; height: 60px; }
 .project-cover .badge {
   position: absolute; top: 14px; left: 14px;
-  background: rgba(255,255,255,.92);
-  color: var(--navy-900);
+  background: var(--orange-500);
+  color: #fff;
   font-size: .72rem; font-weight: 700;
   padding: 6px 10px; border-radius: 999px;
   text-transform: uppercase; letter-spacing: .08em;
