@@ -991,14 +991,31 @@
   .partners { background: #fff; border-top: 1px solid var(--line); }
   .partners .section-head { margin-bottom: 40px; }
   .partners-grid {
-    display: grid; grid-template-columns: repeat(3, minmax(180px, 240px));
-    gap: 20px; justify-content: center; align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(16px, 4vw, 48px);
   }
   .partner-cell {
     padding: 18px 8px; text-align: center;
     color: var(--ink-500); font-weight: 800; letter-spacing: .04em;
     background: transparent;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .partner-cell img {
+    width: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  .partner-cell img.logo-ntb { max-height: 64px; }
+  .partner-cell img.logo-bin { max-height: 56px; }
+  /* PNG has large vertical padding — scale up so visual weight matches others */
+  .partner-cell img.logo-pacinfrax { max-height: 220px; }
 
   /* ===== CTA BANNER ===== */
   .cta-band {
@@ -1205,7 +1222,7 @@
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .why-label { display: none; }
     .project-grid { grid-template-columns: repeat(2, 1fr); }
-    .partners-grid { grid-template-columns: repeat(3, minmax(150px, 220px)); }
+    .partners-grid { gap: 24px; }
     .contact-grid { grid-template-columns: 1fr; }
     .footer .container > .grid { grid-template-columns: 1fr 1fr; }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -1249,7 +1266,7 @@
     h2 { font-size: 1.3rem; }
     .eyebrow { margin-bottom: 8px; }
 
-    /* Horizontal card rails */
+    /* Horizontal card rails — stay inside 16px container gutters */
     .h-scroll {
       display: flex !important;
       grid-template-columns: none !important;
@@ -1259,8 +1276,8 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior-x: contain;
-      margin-inline: -16px;
-      padding: 2px 16px 8px;
+      margin-inline: 0;
+      padding: 2px 0 8px;
       scrollbar-width: none;
     }
     .h-scroll::-webkit-scrollbar { display: none; }
@@ -1397,8 +1414,8 @@
       flex-wrap: nowrap;
       overflow-x: auto;
       justify-content: flex-start;
-      margin-inline: -16px;
-      padding-inline: 16px;
+      margin-inline: 0;
+      padding-inline: 0;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
@@ -1413,16 +1430,18 @@
     .project-meta { font-size: .75rem; gap: 8px; padding-top: 8px; }
     .see-all { margin-top: 14px; padding: 11px 18px; font-size: .88rem; width: 100%; }
 
-    /* Partners */
+    /* Partners — keep 3 logos on one row */
     .partners { min-height: 0; padding-block: 36px; }
     .partners .section-head { margin-bottom: 12px; }
     .partners-grid {
-      grid-template-columns: repeat(2, 1fr);
+      flex-wrap: nowrap;
       max-width: none;
-      gap: 10px;
+      gap: 8px;
     }
-    .partner-cell { padding: 8px 4px; }
-    .partner-cell img { max-height: 36px !important; }
+    .partner-cell { padding: 8px 2px; }
+    .partner-cell img.logo-ntb { max-height: 40px; }
+    .partner-cell img.logo-bin { max-height: 36px; }
+    .partner-cell img.logo-pacinfrax { max-height: 140px; }
 
     /* CTA band */
     .cta-band {
@@ -1955,13 +1974,13 @@
     </div>
     <div class="partners-grid">
       <div class="partner-cell">
-        <img src="/assets/NTB-logo.svg" alt="Logo NTB — Nam Thăng Bình" style="max-height: 56px; width: auto; margin: 0 auto;" />
+        <img class="logo-ntb" src="/assets/NTB-logo.svg" alt="Logo NTB — Nam Thăng Bình" />
       </div>
       <div class="partner-cell">
-        <img src="/assets/Bin-Coration-logo-091023 1.svg" alt="Logo BIN Corporation Group" style="max-height: 48px; width: auto; margin: 0 auto;" />
+        <img class="logo-bin" src="/assets/Bin-Coration-logo-091023 1.svg" alt="Logo BIN Corporation Group" />
       </div>
       <div class="partner-cell">
-        <img src="/assets/PACINFRAX-944x944-M.png" alt="Logo PACINFRAX" style="max-height: 120px; width: auto; margin: 0 auto;" />
+        <img class="logo-pacinfrax" src="/assets/PACINFRAX-944x944-M.png" alt="Logo PACINFRAX" />
       </div>
     </div>
   </div>

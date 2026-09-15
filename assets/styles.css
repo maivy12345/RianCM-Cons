@@ -409,7 +409,7 @@ body.menu-open { overflow: hidden; }
   .btn { padding: 11px 18px; font-size: .9rem; }
   .nav { padding-block: 10px; }
 
-  /* Horizontal scroll rails */
+  /* Horizontal scroll rails — stay inside 16px container gutters */
   .h-scroll,
   .project-grid,
   .news-grid,
@@ -425,8 +425,8 @@ body.menu-open { overflow: hidden; }
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    margin-inline: -16px;
-    padding: 2px 16px 8px;
+    margin-inline: 0;
+    padding: 2px 0 8px;
     scrollbar-width: none;
   }
   .h-scroll::-webkit-scrollbar,
@@ -477,8 +477,8 @@ body.menu-open { overflow: hidden; }
     flex-wrap: nowrap;
     overflow-x: auto;
     width: 100%;
-    margin-inline: -16px;
-    padding-inline: 16px;
+    margin-inline: 0;
+    padding-inline: 0;
     scrollbar-width: none;
   }
   .projects-filters::-webkit-scrollbar { display: none; }
