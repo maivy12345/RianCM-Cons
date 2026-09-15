@@ -386,23 +386,151 @@ body.menu-open { overflow: hidden; }
   .cta-tags { gap: 12px; }
 }
 @media (max-width: 640px) {
-  section { padding-block: 56px; }
-  .container { padding-inline: 18px; }
-  .page-banner { padding-block: 48px 60px; }
+  .m-hide { display: none !important; }
+
+  section {
+    padding-block: 28px;
+    min-height: calc(100dvh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  section > .container { width: 100%; }
+  html { scroll-snap-type: y proximity; }
+  .container { padding-inline: 16px; }
+  .page-banner {
+    padding-block: 36px 40px;
+    min-height: auto;
+    scroll-snap-align: start;
+  }
+  .page-banner .lead { display: none; }
+  .page-banner h1 { font-size: 1.55rem; max-width: none; }
+  .page-banner .crumbs { margin-bottom: 14px; font-size: .75rem; }
+  .fact-chips { display: none; }
+  .section-head { margin-bottom: 18px; }
+  .section-head p { display: none; }
+  .section-head h2 { font-size: 1.35rem; }
+  .eyebrow { margin-bottom: 10px; }
+
+  /* Horizontal scroll rails */
+  .h-scroll,
+  .project-grid,
+  .news-grid,
+  .services-grid-4,
+  .svc-others-grid,
+  .pd-scope-grid,
+  .cat-quicknav {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin-inline: -16px;
+    padding: 4px 16px 12px;
+    scrollbar-width: none;
+  }
+  .h-scroll::-webkit-scrollbar,
+  .project-grid::-webkit-scrollbar,
+  .news-grid::-webkit-scrollbar,
+  .services-grid-4::-webkit-scrollbar,
+  .svc-others-grid::-webkit-scrollbar,
+  .pd-scope-grid::-webkit-scrollbar,
+  .cat-quicknav::-webkit-scrollbar { display: none; }
+  .h-scroll > *,
+  .project-grid > *,
+  .news-grid > *,
+  .services-grid-4 > *,
+  .svc-others-grid > *,
+  .pd-scope-grid > * {
+    flex: 0 0 min(78vw, 300px);
+    scroll-snap-align: start;
+    max-width: min(78vw, 300px);
+  }
+  .cat-quicknav > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    max-width: none;
+  }
+
   .footer .container > .grid { grid-template-columns: 1fr; }
   .cta-row { flex-direction: column; align-items: stretch; }
   .cta-row .btn { width: 100%; justify-content: center; }
   .cta-band .cta-row { justify-content: flex-start; }
-  .cta-band { margin-inline: 0; border-radius: 16px; }
-  .section-head { margin-bottom: 40px; }
+  .cta-band { margin-inline: 0; border-radius: 16px; margin-block: 20px; min-height: auto; }
+  .cta-band p { display: none; }
+  .cta-inner { padding: 28px 20px; }
+  .cta-band h2 { font-size: 1.35rem; margin-bottom: 16px; }
   .topbar { font-size: .78rem; }
   .topbar-inner { justify-content: center; gap: 8px; padding-block: 6px; }
   .topbar > .container > div:first-child { display: none; }
   .topbar-right { justify-content: center; gap: 8px; }
   .topbar-right > *:nth-child(n+4) { display: none; }
-  .footer { padding-block: 50px 24px; }
+  .footer { padding-block: 40px 20px; min-height: auto; }
+  .footer .about-blurb { display: none; }
   .bottom-bar { flex-direction: column; text-align: center; }
   .socials { justify-content: flex-start; }
+
+  /* Projects listing compact */
+  .projects-listing { min-height: calc(100dvh - 72px); }
+  .projects-toolbar { margin-bottom: 16px; gap: 12px; flex-direction: column; align-items: flex-start; }
+  .projects-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scrollbar-width: none;
+  }
+  .projects-filters::-webkit-scrollbar { display: none; }
+  .project-body p { display: none; }
+  .project-cover { aspect-ratio: 16/10; }
+  .project-body { padding: 14px 14px 16px; }
+  .project-body h3 { font-size: .98rem; margin: 4px 0 8px; }
+  .project-meta { font-size: .75rem; gap: 8px; padding-top: 10px; }
+  .project-grid--compact .project-body p { display: none; }
+
+  /* News / services cards */
+  .news-body p { display: none; }
+  .news-body { padding: 14px 14px 16px; }
+  .news-body h3 { font-size: .98rem; }
+  .services-grid-4 .news-cover { aspect-ratio: 4/3; }
+  .services-listing { min-height: calc(100dvh - 72px); }
+
+  /* Service detail phases → accordion-like stack */
+  .svc-phases {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .svc-phase {
+    padding: 14px 14px 12px;
+    gap: 12px;
+  }
+  .svc-phase p { display: none; }
+  .svc-phase .pnum { width: 40px; height: 40px; font-size: .85rem; border-radius: 10px; }
+  .svc-phase h3 { margin: 0; font-size: .95rem; }
+  .svc-other-card p { display: none; }
+  .svc-others { min-height: auto; padding-block: 28px; }
+
+  /* Project detail */
+  .pd-overview { padding-block: 28px; min-height: auto; }
+  .pd-overview .container { gap: 20px; }
+  .pd-cover { aspect-ratio: 16/10; border-radius: 14px; }
+  .pd-facts { padding: 18px 16px; }
+  .pd-section { padding-block: 28px; min-height: auto; }
+  .pd-scope-card p { display: none; }
+  .pd-scope-card { padding: 16px; }
+  .pd-highlights li span { display: none; }
+  .pd-highlights li { padding: 14px 16px; }
+  .pd-related { padding-block: 28px; min-height: auto; }
+
+  /* Empty state */
+  .empty-state { padding: 36px 20px; }
 }
 
 /* ==========================================================================
@@ -649,7 +777,6 @@ body.menu-open { overflow: hidden; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .project-grid { grid-template-columns: 1fr; }
   .projects-toolbar { flex-direction: column; align-items: flex-start; }
 }
 
@@ -860,7 +987,6 @@ body.menu-open { overflow: hidden; }
 .news-body p { color: var(--ink-500); font-size: .9rem; margin: 0; }
 
 @media (max-width: 1024px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px)  { .news-grid { grid-template-columns: 1fr; } }
 
 /* Services listing — 4 cards in a 2x2 grid with photo covers */
 .services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1080px; margin-inline: auto; }
@@ -878,9 +1004,6 @@ body.menu-open { overflow: hidden; }
 .news-card:hover .news-cover.has-photo { transform: scale(1.02); }
 .services-grid-4 .news-body { padding: 24px 24px 26px; }
 .services-grid-4 .news-body h3 { font-size: 1.15rem; }
-@media (max-width: 720px) {
-  .services-grid-4 { grid-template-columns: 1fr; gap: 20px; }
-}
 
 /* ==========================================================================
    SERVICE DETAIL (/dich-vu/{ten-dich-vu})

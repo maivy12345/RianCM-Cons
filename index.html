@@ -491,9 +491,39 @@
     list-style: none; padding: 0; margin: 24px 0 32px;
     display: grid; gap: 12px;
   }
-  .about-points li {
-    display: flex; gap: 12px; align-items: flex-start;
+  .about-points .acc-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .about-points .acc-item summary {
+    display: flex; gap: 12px; align-items: center;
+    padding: 12px 14px;
+    cursor: pointer;
+    list-style: none;
     color: var(--ink-700);
+  }
+  .about-points .acc-item summary::-webkit-details-marker { display: none; }
+  .about-points .acc-item summary::after {
+    content: "";
+    margin-left: auto;
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--ink-400);
+    border-bottom: 2px solid var(--ink-400);
+    transform: rotate(45deg);
+    transition: transform .2s;
+    flex: none;
+  }
+  .about-points .acc-item[open] summary::after {
+    transform: rotate(-135deg);
+    margin-top: 4px;
+  }
+  .about-points .acc-item p {
+    margin: 0;
+    padding: 0 14px 14px 50px;
+    color: var(--ink-500);
+    font-size: .92rem;
   }
   .about-points .tick {
     width: 24px; height: 24px; border-radius: 50%;
@@ -828,6 +858,10 @@
     border-top: 2px dashed var(--navy-100); z-index: 0;
   }
   .process-step { position: relative; text-align: center; --pcolor: var(--gold-500); --pbg: var(--gold-100); }
+  .process-step summary {
+    list-style: none; cursor: default;
+  }
+  .process-step summary::-webkit-details-marker { display: none; }
   .process-step .pnum {
     position: relative; z-index: 1;
     width: 60px; height: 60px; margin: 0 auto 20px;
@@ -1164,7 +1198,7 @@
     .service-grid { grid-template-columns: repeat(2, 1fr); }
     .service-grid.service-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .service-card.has-photo { aspect-ratio: 4/5; min-height: 380px; }
-    .service-card.has-photo .service-desc { max-height: 220px; opacity: 1; margin-bottom: 14px; }
+    .service-card.has-photo .service-desc { display: none; }
     .service-card.has-photo .service-scrim { background: linear-gradient(180deg, rgba(8,19,46,.15) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.94) 100%); }
     .service-photo { min-height: 260px; }
     .connector { display: none; }
@@ -1199,20 +1233,47 @@
     .burger.is-open { position: fixed; top: 18px; right: 22px; z-index: 55; }
   }
   @media (max-width: 640px) {
-    section { padding-block: 56px; }
-    .container { padding-inline: 18px; }
-    .service-grid, .why-grid, .project-grid { grid-template-columns: 1fr; }
-    .service-photo { min-height: 220px; }
-    .service-photo .photo-caption { font-size: .74rem; letter-spacing: .28em; }
-    .partners-grid { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
-    .footer .container > .grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .projects-head { align-items: center; }
-    .projects-filters { justify-content: center; }
-    .cta-band { margin-inline: 0; border-radius: 16px; }
-    .cta-inner { padding: 20px 22px; }
-    .section-head { margin-bottom: 40px; }
-    .form-card { padding: 26px 20px; }
+    /* ===== MOBILE: 1 section ≈ 1 viewport ===== */
+    .m-hide { display: none !important; }
+
+    section {
+      padding-block: 28px;
+      min-height: calc(100dvh - 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    section > .container { width: 100%; }
+    html { scroll-snap-type: y proximity; }
+    .container { padding-inline: 16px; width: 100%; }
+    .section-head { margin-bottom: 18px; }
+    .section-head .eyebrow { margin-bottom: 10px; font-size: .72rem; }
+    .section-head h2 { font-size: 1.35rem; margin-bottom: .35em; }
+    h2 { font-size: 1.35rem; }
+    .eyebrow { margin-bottom: 10px; }
+
+    /* Horizontal card rails */
+    .h-scroll {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 12px !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      margin-inline: -16px;
+      padding: 4px 16px 12px;
+      scrollbar-width: none;
+    }
+    .h-scroll::-webkit-scrollbar { display: none; }
+    .h-scroll > * {
+      flex: 0 0 min(78vw, 300px);
+      scroll-snap-align: start;
+      max-width: min(78vw, 300px);
+    }
 
     /* Topbar compact */
     .topbar { font-size: .78rem; }
@@ -1221,52 +1282,211 @@
     .topbar-right { justify-content: center; gap: 8px; }
     .topbar-right > *:nth-child(n+4) { display: none; }
 
-    /* Hero */
-    .hero { text-align: left; }
-    .hero-inner { padding-block: 40px 50px; gap: 28px; }
-    .hero .lead { font-size: .98rem; margin-bottom: 26px; }
-    .hero .eyebrow, .hero-stats { display: none; }
-    .hero-visual { min-height: 500px; }
-    .hero-person { height: 460px; right: 50%; transform: translateX(50%); bottom: -20px; }
-    .hero-photo { opacity: .55; mask-image: none; -webkit-mask-image: none; }
-    .cta-row { flex-direction: column; align-items: stretch; }
-    .cta-row .btn { width: 100%; justify-content: center; }
-    .hero-stats { gap: 14px 20px; margin-top: 30px; }
-    .hero-stats strong { font-size: 1.3rem; }
-
-    /* Floating cards - stacked on top, more compact */
-    .floating-card {
-      min-width: 0; width: calc(100% - 40px); max-width: 300px;
-      padding: 10px 14px 10px 10px; font-size: .85rem;
+    /* Hero — one viewport */
+    .hero {
+      min-height: calc(100dvh - 72px);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      scroll-snap-align: start;
     }
-    .floating-card.fc-a { top: 12px; left: 12px; bottom: auto; right: auto; }
-    .floating-card.fc-b { top: 96px; left: 12px; bottom: auto; right: auto; }
-    .fc-icon { width: 38px; height: 38px; border-radius: 10px; }
-    .fc-icon svg { width: 18px; height: 18px; }
-    .floating-card .fc-arrow { width: 24px; height: 24px; }
+    .hero-inner {
+      padding-block: 28px 32px;
+      gap: 0;
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    .hero h1 { font-size: 1.7rem; margin-bottom: .55em; }
+    .hero .eyebrow { display: inline-flex; margin-bottom: 14px; }
+    .hero-stats { display: none; }
+    .hero-visual { display: none; }
+    .hero-photo {
+      width: 100%; opacity: .45;
+      mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 70%, transparent 100%);
+    }
+    .cta-row { flex-direction: column; align-items: stretch; gap: 10px; }
+    .cta-row .btn { width: 100%; justify-content: center; }
+    .btn { padding: 13px 20px; font-size: .92rem; }
 
-    /* Buttons touch-friendly */
-    .btn { padding: 14px 22px; font-size: .95rem; }
+    /* About */
+    .about .about-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 0; }
+    .about-points { margin: 14px 0 20px; gap: 8px; }
+    .about-points .acc-item p { display: none; }
+    .about-points .acc-item[open] p { display: block; padding: 0 14px 12px 50px; font-size: .85rem; }
+    .about-points .acc-item summary { padding: 11px 12px; }
+    .about-text h2 { font-size: 1.35rem; }
+    .about .btn { width: 100%; justify-content: center; }
 
-    /* Service card */
-    .service-card { padding: 24px 20px 22px; }
-    .service-highlight { padding: 24px 22px; }
-    .service-highlight .num-big { font-size: 3rem; }
+    /* Services — horizontal cards, no desc */
+    .services .service-desc { display: none !important; }
+    .service-grid.service-grid-4.h-scroll > .service-card.has-photo {
+      aspect-ratio: 3/4;
+      min-height: 0;
+      height: min(52dvh, 420px);
+      flex-basis: min(72vw, 280px);
+      max-width: min(72vw, 280px);
+    }
+    .service-card.has-photo .service-content { padding: 18px 16px 16px; }
+    .service-card.has-photo h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .service-card.has-photo .service-scrim {
+      background: linear-gradient(180deg, rgba(8,19,46,.1) 35%, rgba(8,19,46,.88) 100%);
+    }
+    .service-card { padding: 18px 16px; min-height: 0; }
 
-    /* Contact */
-    .contact { padding-block: 60px; }
+    /* Why — horizontal compact cards */
+    .why { padding-block: 32px; min-height: calc(100dvh - 72px); }
+    .why-grid.h-scroll > .why-card {
+      min-height: 0;
+      height: auto;
+      padding: 18px 16px 20px;
+      flex-basis: min(72vw, 260px);
+      max-width: min(72vw, 260px);
+    }
+    .why-card-head { margin-bottom: 14px; }
+    .why-num { font-size: 1.5rem; }
+    .why-icon { width: 42px; height: 42px; }
+    .why-icon img { width: 22px; height: 22px; }
+    .why-card h3 { font-size: .98rem; margin-bottom: 0; }
+    .why-watermark { font-size: 2.4rem; }
+
+    /* Process — accordion stack */
+    .process-grid {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+    .process-grid::before { display: none; }
+    .process-step {
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 0;
+      overflow: hidden;
+    }
+    .process-step summary {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+    }
+    .process-step summary::after {
+      content: "";
+      margin-left: auto;
+      width: 8px; height: 8px;
+      border-right: 2px solid var(--ink-400);
+      border-bottom: 2px solid var(--ink-400);
+      transform: rotate(45deg);
+      transition: transform .2s;
+      flex: none;
+    }
+    .process-step[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+    .process-step .pnum {
+      width: 36px; height: 36px; margin: 0;
+      font-size: .85rem; flex: none;
+    }
+    .process-step h4 { margin: 0; font-size: .95rem; }
+    .process-step p {
+      padding: 0 14px 12px 62px;
+      font-size: .85rem;
+      text-align: left;
+    }
+    .process-step:not([open]) p { display: none; }
+
+    /* Projects */
+    .projects-head { gap: 14px; margin-bottom: 16px; align-items: stretch; }
+    .projects-filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      margin-inline: -16px;
+      padding-inline: 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .projects-filters::-webkit-scrollbar { display: none; }
+    .project-grid.h-scroll > .project-card {
+      flex-basis: min(82vw, 300px);
+      max-width: min(82vw, 300px);
+    }
+    .project-cover { aspect-ratio: 16/10; }
+    .project-body { padding: 14px 14px 16px; }
+    .project-body h3 { font-size: .98rem; margin: 4px 0 8px; }
+    .project-meta { font-size: .75rem; gap: 8px; padding-top: 10px; }
+    .see-all { margin-top: 18px; padding: 12px 22px; font-size: .9rem; width: 100%; }
+
+    /* Partners */
+    .partners { min-height: auto; padding-block: 28px; }
+    .partners .section-head { margin-bottom: 16px; }
+    .partners-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: none;
+      gap: 12px;
+    }
+    .partner-cell { padding: 10px 6px; }
+    .partner-cell img { max-height: 40px !important; }
+
+    /* CTA band */
+    .cta-band {
+      margin-block: 20px; margin-inline: 0; border-radius: 16px;
+      min-height: auto;
+    }
+    .cta-inner { padding: 28px 20px; }
+    .cta-band h2 { font-size: 1.35rem; margin-bottom: 16px; }
+    .cta-band .cta-row { margin-bottom: 0; }
+
+    /* Contact — compact */
+    .contact {
+      min-height: auto;
+      padding-block: 28px;
+      justify-content: flex-start;
+    }
+    .contact-grid { gap: 22px; }
+    .contact-list { margin-top: 14px; gap: 10px; }
+    .contact-list li { gap: 12px; }
+    .contact-list .ic { width: 38px; height: 38px; border-radius: 10px; }
+    .contact-list b { font-size: .92rem; }
+    .form-card { padding: 20px 16px; border-radius: 16px; }
+    .form-card h3 { margin-bottom: 14px; font-size: 1.05rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-field { margin-bottom: 10px; }
+    .form-field textarea { min-height: 72px; }
+    .consent { font-size: .8rem; margin: 2px 0 12px; }
 
     /* Footer */
-    .footer { padding-block: 50px 24px; }
+    .footer { padding-block: 40px 20px; }
+    .footer .container > .grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer .about-blurb { display: none; }
     .bottom-bar { flex-direction: column; text-align: center; }
     .socials { justify-content: flex-start; }
   }
   @media (max-width: 380px) {
-    h1 { font-size: 1.75rem !important; }
-    .hero h1 { font-size: 1.75rem; }
+    .hero h1 { font-size: 1.5rem; }
     .brand-logo { height: 36px !important; }
-    .hero-visual { min-height: 440px; }
-    .hero-person { height: 420px; }
+    .h-scroll > * {
+      flex-basis: min(84vw, 280px);
+      max-width: min(84vw, 280px);
+    }
+  }
+
+  /* Desktop: process & about look non-interactive; content always visible via JS open */
+  @media (min-width: 641px) {
+    .process-step summary { pointer-events: none; }
+    .process-step summary::after { display: none; }
+    .about-points .acc-item {
+      border: 0; background: transparent; border-radius: 0;
+    }
+    .about-points .acc-item summary {
+      padding: 0; cursor: default; pointer-events: none;
+    }
+    .about-points .acc-item summary::after { display: none; }
+    .about-points .acc-item p {
+      padding: 2px 0 0 36px; margin: 0;
+    }
   }
 </style>
 
@@ -1371,6 +1591,38 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     window.addEventListener('resize', () => { if (window.innerWidth > 1024) close(); });
   })();
+
+  /* Accordion: one open on mobile; all open on desktop */
+  (function () {
+    var groups = document.querySelectorAll('.acc-group');
+    if (!groups.length) return;
+    var mq = window.matchMedia('(max-width: 640px)');
+
+    function applyMode(mobile) {
+      groups.forEach(function (group) {
+        var items = group.querySelectorAll('.acc-item');
+        items.forEach(function (item, i) {
+          if (!mobile) item.open = true;
+          else item.open = i === 0;
+        });
+      });
+    }
+
+    groups.forEach(function (group) {
+      group.addEventListener('toggle', function (e) {
+        if (!mq.matches) return;
+        var t = e.target;
+        if (!t.classList || !t.classList.contains('acc-item') || !t.open) return;
+        group.querySelectorAll('.acc-item').forEach(function (item) {
+          if (item !== t) item.open = false;
+        });
+      }, true);
+    });
+
+    applyMode(mq.matches);
+    if (mq.addEventListener) mq.addEventListener('change', function (e) { applyMode(e.matches); });
+    else mq.addListener(function (e) { applyMode(e.matches); });
+  })();
 </script>
 
 <!-- ============ HERO ============ -->
@@ -1382,7 +1634,7 @@
     <div>
       <span class="eyebrow">RianCM Cons Co., Ltd</span>
       <h1>Tư vấn quản lý xây dựng –<br>kiểm soát <span class="accent">chất lượng,</span><br>tiến độ &amp; chi phí</h1>
-      <p class="lead">RianCM Cons đồng hành cùng chủ đầu tư và nhà phát triển dự án trong quản lý dự án, giám sát thi công và đầu tư xây dựng — làm đúng chuẩn ngay từ đầu.</p>
+      <p class="lead m-hide">RianCM Cons đồng hành cùng chủ đầu tư và nhà phát triển dự án trong quản lý dự án, giám sát thi công và đầu tư xây dựng — làm đúng chuẩn ngay từ đầu.</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">
           Gửi yêu cầu tư vấn
@@ -1450,23 +1702,23 @@
       <div class="about-text">
         <span class="eyebrow">Về chúng tôi</span>
         <h2>RianCM Cons — làm đúng từ <span>góc vuông</span> đầu tiên</h2>
-        <p>Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp: quản lý dự án, giám sát thi công, tư vấn đầu tư và quản lý chi phí.</p>
-        <p>Chúng tôi làm việc theo tư duy thực tế của người trực tiếp triển khai — bám sát hiện trường, kiểm soát chất lượng, tiến độ, chi phí và rủi ro để chủ đầu tư luôn nắm được dự án đang ở đâu.</p>
+        <p class="m-hide">Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp: quản lý dự án, giám sát thi công, tư vấn đầu tư và quản lý chi phí.</p>
+        <p class="m-hide">Chúng tôi làm việc theo tư duy thực tế của người trực tiếp triển khai — bám sát hiện trường, kiểm soát chất lượng, tiến độ, chi phí và rủi ro để chủ đầu tư luôn nắm được dự án đang ở đâu.</p>
 
-        <ul class="about-points">
-          <li>
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
-            <span><b>Bám sát hiện trường:</b> Ra quyết định trên dữ liệu thực tế, không chỉ trên bản vẽ.</span>
-          </li>
-          <li>
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
-            <span><b>Đủ chuẩn – đủ chuyên môn:</b> Áp dụng tiêu chuẩn ngành, quy trình rõ ràng cho từng giai đoạn.</span>
-          </li>
-          <li>
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
-            <span><b>Minh bạch với chủ đầu tư:</b> Báo cáo định kỳ, rõ ràng — đủ cơ sở ra quyết định.</span>
-          </li>
-        </ul>
+        <div class="about-points acc-group">
+          <details class="acc-item" open>
+            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Bám sát hiện trường</b></summary>
+            <p>Ra quyết định trên dữ liệu thực tế, không chỉ trên bản vẽ.</p>
+          </details>
+          <details class="acc-item">
+            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Đủ chuẩn – đủ chuyên môn</b></summary>
+            <p>Áp dụng tiêu chuẩn ngành, quy trình rõ ràng cho từng giai đoạn.</p>
+          </details>
+          <details class="acc-item">
+            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Minh bạch với chủ đầu tư</b></summary>
+            <p>Báo cáo định kỳ, rõ ràng — đủ cơ sở ra quyết định.</p>
+          </details>
+        </div>
 
         <a href="/gioi-thieu/" class="btn btn-primary" style="background:var(--navy-900);color:#fff;box-shadow:none;">
           Tìm hiểu về RianCM Cons
@@ -1483,15 +1735,15 @@
     <div class="section-head">
       <span class="eyebrow">Dịch vụ của RianCM Cons</span>
       <h2>Giải pháp tư vấn toàn diện cho dự án xây dựng</h2>
-      <p>Từ giai đoạn chuẩn bị đầu tư đến bàn giao — chúng tôi cùng chủ đầu tư kiểm soát mọi biến số của một dự án xây dựng.</p>
+      <p class="m-hide">Từ giai đoạn chuẩn bị đầu tư đến bàn giao — chúng tôi cùng chủ đầu tư kiểm soát mọi biến số của một dự án xây dựng.</p>
     </div>
 
-    <div class="service-grid service-grid-4">
+    <div class="service-grid service-grid-4 h-scroll">
       <article class="service-card has-photo" style="background-image: url('/assets/project-bin-hq.jpg');">
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn quản lý dự án</h3>
-          <div class="service-desc"><div class="service-desc-inner"><p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p></div></div>
+          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p></div></div>
           <a href="/dich-vu/quan-ly-du-an/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1502,7 +1754,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn giám sát thi công</h3>
-          <div class="service-desc"><div class="service-desc-inner"><p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p></div></div>
+          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p></div></div>
           <a href="/dich-vu/tu-van-giam-sat/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1513,7 +1765,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn đầu tư xây dựng</h3>
-          <div class="service-desc"><div class="service-desc-inner"><p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p></div></div>
+          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p></div></div>
           <a href="/dich-vu/tu-van-dau-tu/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1524,7 +1776,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn quản lý chi phí</h3>
-          <div class="service-desc"><div class="service-desc-inner"><p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p></div></div>
+          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p></div></div>
           <a href="/dich-vu/quan-ly-chi-phi/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1540,10 +1792,10 @@
     <div class="section-head">
       <span class="eyebrow" style="color:var(--orange-500);">Tại sao chọn RianCM Cons</span>
       <h2>Vì sao chủ đầu tư chọn <span class="accent">RianCM Cons</span></h2>
-      <p>Chúng tôi kiểm soát dự án bằng góc nhìn của người trực tiếp triển khai — không chỉ dừng ở giấy tờ và bản vẽ.</p>
+      <p class="m-hide">Chúng tôi kiểm soát dự án bằng góc nhìn của người trực tiếp triển khai — không chỉ dừng ở giấy tờ và bản vẽ.</p>
     </div>
 
-    <div class="why-grid">
+    <div class="why-grid h-scroll">
       <article class="why-card">
         <div class="why-card-head">
           <span class="why-num">01<span>/</span></span>
@@ -1552,7 +1804,7 @@
           </div>
         </div>
         <h3>Chất lượng – tiến độ – chi phí</h3>
-        <p>Ba yếu tố ràng buộc lẫn nhau, được quản lý cùng lúc để thay đổi ở khâu này không âm thầm phá vỡ khâu kia.</p>
+        <p class="m-hide">Ba yếu tố ràng buộc lẫn nhau, được quản lý cùng lúc để thay đổi ở khâu này không âm thầm phá vỡ khâu kia.</p>
         <span class="why-watermark" aria-hidden="true">01</span>
       </article>
 
@@ -1564,7 +1816,7 @@
           </div>
         </div>
         <h3>Quản trị rủi ro chủ động</h3>
-        <p>Nhận diện rủi ro kỹ thuật, tiến độ, chi phí từ sớm và đề xuất phương án xử lý — thay vì chỉ báo cáo khi đã xảy ra.</p>
+        <p class="m-hide">Nhận diện rủi ro kỹ thuật, tiến độ, chi phí từ sớm và đề xuất phương án xử lý — thay vì chỉ báo cáo khi đã xảy ra.</p>
         <span class="why-watermark" aria-hidden="true">02</span>
       </article>
 
@@ -1576,7 +1828,7 @@
           </div>
         </div>
         <h3>Tư duy thực tế, hiểu quy trình</h3>
-        <p>Cách làm xuất phát từ hiện trường và quy trình thi công thực tế, giúp tư vấn khả thi, dễ áp dụng.</p>
+        <p class="m-hide">Cách làm xuất phát từ hiện trường và quy trình thi công thực tế, giúp tư vấn khả thi, dễ áp dụng.</p>
         <span class="why-watermark" aria-hidden="true">03</span>
       </article>
 
@@ -1588,7 +1840,7 @@
           </div>
         </div>
         <h3>Minh bạch với chủ đầu tư</h3>
-        <p>Chủ đầu tư nắm tình trạng dự án qua báo cáo rõ ràng, đủ cơ sở để ra quyết định nhanh và đúng.</p>
+        <p class="m-hide">Chủ đầu tư nắm tình trạng dự án qua báo cáo rõ ràng, đủ cơ sở để ra quyết định nhanh và đúng.</p>
         <span class="why-watermark" aria-hidden="true">04</span>
       </article>
     </div>
@@ -1602,34 +1854,44 @@
     <div class="section-head">
       <span class="eyebrow">Quy trình tư vấn</span>
       <h2>05 bước đồng hành cùng dự án của bạn</h2>
-      <p>Một quy trình rõ ràng giúp chủ đầu tư dễ theo dõi, dễ ra quyết định và luôn biết dự án đang ở đâu.</p>
+      <p class="m-hide">Một quy trình rõ ràng giúp chủ đầu tư dễ theo dõi, dễ ra quyết định và luôn biết dự án đang ở đâu.</p>
     </div>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="pnum">01</div>
-        <h4>Khảo sát &amp; hiểu dự án</h4>
+    <div class="process-grid acc-group">
+      <details class="process-step acc-item" open>
+        <summary>
+          <div class="pnum">01</div>
+          <h4>Khảo sát &amp; hiểu dự án</h4>
+        </summary>
         <p>Nắm rõ mục tiêu chủ đầu tư, ràng buộc kỹ thuật và tài chính.</p>
-      </div>
-      <div class="process-step">
-        <div class="pnum">02</div>
-        <h4>Đánh giá &amp; đề xuất</h4>
+      </details>
+      <details class="process-step acc-item">
+        <summary>
+          <div class="pnum">02</div>
+          <h4>Đánh giá &amp; đề xuất</h4>
+        </summary>
         <p>Phân tích khả thi, đề xuất phạm vi tư vấn và các rủi ro cần kiểm soát.</p>
-      </div>
-      <div class="process-step">
-        <div class="pnum">03</div>
-        <h4>Lập kế hoạch triển khai</h4>
+      </details>
+      <details class="process-step acc-item">
+        <summary>
+          <div class="pnum">03</div>
+          <h4>Lập kế hoạch triển khai</h4>
+        </summary>
         <p>Xây dựng tiến độ, ngân sách và quy trình phối hợp các bên.</p>
-      </div>
-      <div class="process-step">
-        <div class="pnum">04</div>
-        <h4>Kiểm soát &amp; giám sát</h4>
+      </details>
+      <details class="process-step acc-item">
+        <summary>
+          <div class="pnum">04</div>
+          <h4>Kiểm soát &amp; giám sát</h4>
+        </summary>
         <p>Bám sát hiện trường, đối chiếu tiêu chuẩn, báo cáo định kỳ.</p>
-      </div>
-      <div class="process-step">
-        <div class="pnum">05</div>
-        <h4>Nghiệm thu &amp; bàn giao</h4>
+      </details>
+      <details class="process-step acc-item">
+        <summary>
+          <div class="pnum">05</div>
+          <h4>Nghiệm thu &amp; bàn giao</h4>
+        </summary>
         <p>Đảm bảo dự án về đích đúng chất lượng, tiến độ và chi phí cam kết.</p>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -1651,7 +1913,7 @@
       </div>
     </div>
 
-    <div class="project-grid">
+    <div class="project-grid h-scroll">
       <article class="project-card">
         <div class="project-cover has-photo">
           <img class="cover-photo" src="/assets/project-tram-bess.jpg" alt="Hạ tầng điện — trạm KCN Nam Thăng Bình" width="1400" height="781" loading="lazy" decoding="async" />
@@ -1659,7 +1921,7 @@
         </div>
         <div class="project-body">
           <h3>Đường dây và trạm biến áp KCN Nam Thăng Bình</h3>
-          <p>RianCM thực hiện tư vấn quản lý dự án và giám sát thi công công trình đường dây, trạm biến áp phục vụ hệ thống hạ tầng điện của KCN Nam Thăng Bình; kiểm soát kỹ thuật, chất lượng, tiến độ và an toàn.</p>
+          <p class="m-hide">RianCM thực hiện tư vấn quản lý dự án và giám sát thi công công trình đường dây, trạm biến áp phục vụ hệ thống hạ tầng điện của KCN Nam Thăng Bình; kiểm soát kỹ thuật, chất lượng, tiến độ và an toàn.</p>
           <div class="project-meta">
             <span>Vai trò: <strong>QLDA + Giám sát</strong></span>
             <span>Địa điểm: <strong>Đà Nẵng</strong></span>
@@ -1674,7 +1936,7 @@
         </div>
         <div class="project-body">
           <h3>Trụ sở BIN Corporation Group</h3>
-          <p>RianCM cung cấp dịch vụ tư vấn cải tạo nội thất văn phòng, tối ưu công năng, môi trường làm việc và trải nghiệm sử dụng; phối hợp yêu cầu thiết kế, kỹ thuật và thi công để bảo đảm tính thống nhất của không gian.</p>
+          <p class="m-hide">RianCM cung cấp dịch vụ tư vấn cải tạo nội thất văn phòng, tối ưu công năng, môi trường làm việc và trải nghiệm sử dụng; phối hợp yêu cầu thiết kế, kỹ thuật và thi công để bảo đảm tính thống nhất của không gian.</p>
           <div class="project-meta">
             <span>Vai trò: <strong>Tư vấn cải tạo</strong></span>
             <span>Loại: <strong>Văn phòng</strong></span>
@@ -1718,7 +1980,7 @@
     <div class="cta-inner">
       <span class="eyebrow" style="color:var(--gold-400);">Trao đổi về dự án của bạn</span>
       <h2>Sẵn sàng bắt đầu —<br>chúng tôi sẽ liên hệ trong <span class="accent">24 giờ</span></h2>
-      <p>Gửi thông tin dự án, đội ngũ RianCM Cons sẽ liên hệ để tư vấn phạm vi công việc phù hợp.</p>
+      <p class="m-hide">Gửi thông tin dự án, đội ngũ RianCM Cons sẽ liên hệ để tư vấn phạm vi công việc phù hợp.</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M2 21 23 12 2 3v7l16 2-16 2z"/></svg>
@@ -1741,7 +2003,7 @@
       <div class="contact-info">
         <span class="eyebrow">Liên hệ RianCM Cons</span>
         <h2>Thảo luận về <span>dự án</span> của bạn</h2>
-        <p>Đăng ký thông tin hoặc liên hệ trực tiếp với văn phòng của RianCM Cons tại TP.HCM. Chúng tôi sẽ phản hồi trong 24 giờ làm việc.</p>
+        <p class="m-hide">Đăng ký thông tin hoặc liên hệ trực tiếp với văn phòng của RianCM Cons tại TP.HCM. Chúng tôi sẽ phản hồi trong 24 giờ làm việc.</p>
 
         <ul class="contact-list">
           <li>

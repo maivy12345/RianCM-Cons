@@ -61,4 +61,31 @@
       });
     });
   }
+  // ---- Accordion groups (one open on mobile; all open on desktop) ----
+  var groups = document.querySelectorAll('.acc-group');
+  if (groups.length) {
+    var mq = window.matchMedia('(max-width: 640px)');
+    var applyMode = function (mobile) {
+      groups.forEach(function (group) {
+        var items = group.querySelectorAll('.acc-item');
+        items.forEach(function (item, i) {
+          if (!mobile) item.open = true;
+          else item.open = i === 0;
+        });
+      });
+    };
+    groups.forEach(function (group) {
+      group.addEventListener('toggle', function (e) {
+        if (!mq.matches) return;
+        var t = e.target;
+        if (!t.classList || !t.classList.contains('acc-item') || !t.open) return;
+        group.querySelectorAll('.acc-item').forEach(function (item) {
+          if (item !== t) item.open = false;
+        });
+      }, true);
+    });
+    applyMode(mq.matches);
+    if (mq.addEventListener) mq.addEventListener('change', function (e) { applyMode(e.matches); });
+    else mq.addListener(function (e) { applyMode(e.matches); });
+  }
 })();
