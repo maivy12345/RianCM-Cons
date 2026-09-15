@@ -8,7 +8,7 @@
 <link rel="preload" as="image" href="/assets/hero-person.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy-950: #08132E;
@@ -388,8 +388,8 @@
   .hero-script {
     position: absolute; z-index: 4;
     right: 30%; bottom: 32%;
-    font-family: 'Caveat', cursive;
-    font-size: 2.4rem; font-weight: 700;
+    font-family: 'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 1.5rem; font-weight: 700;
     color: var(--gold-400);
     transform: rotate(-6deg);
     text-shadow: 0 4px 20px rgba(245,180,23,.25);
@@ -868,7 +868,7 @@
   }
   .filter.active, .filter:hover { background: var(--orange-500); color: #fff; border-color: var(--orange-500); }
   .project-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
   }
   .project-card {
     position: relative; border-radius: 16px; overflow: hidden;
@@ -1811,6 +1811,9 @@
             <span>Vai trò: <strong>QLDA + Giám sát</strong></span>
             <span>Địa điểm: <strong>Đà Nẵng</strong></span>
           </div>
+          <a class="project-link" href="/du-an/tram-bien-ap-nam-thang-binh/">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </article>
 
@@ -1826,6 +1829,27 @@
             <span>Vai trò: <strong>Tư vấn cải tạo</strong></span>
             <span>Địa điểm: <strong>TP. Hồ Chí Minh</strong></span>
           </div>
+          <a class="project-link" href="/du-an/bin-corporation-group/">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-cover has-photo">
+          <img class="cover-photo" src="/assets/project-pacinfrax.jpg" alt="PacinfraX Data Center" width="1600" height="883" loading="lazy" decoding="async" />
+          <div class="badge" style="background: var(--navy-900); color: #fff;">Quản lý dự án</div>
+        </div>
+        <div class="project-body">
+          <h3>PacinfraX Data Center</h3>
+          <p class="m-hide">Dự án công nghệ có yêu cầu cao về tính ổn định, an toàn và khả năng phối hợp giữa các hệ thống kỹ thuật. RianCM tham gia quản lý dự án, mở rộng kinh nghiệm trong lĩnh vực trung tâm dữ liệu.</p>
+          <div class="project-meta">
+            <span>Vai trò: <strong>Quản lý dự án</strong></span>
+            <span>Địa điểm: <strong>Texas, Hoa Kỳ</strong></span>
+          </div>
+          <a class="project-link" href="/du-an/pacinfrax-data-center/">Xem chi tiết
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </article>
 
