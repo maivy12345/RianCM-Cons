@@ -491,39 +491,9 @@
     list-style: none; padding: 0; margin: 24px 0 32px;
     display: grid; gap: 12px;
   }
-  .about-points .acc-item {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: #fff;
-    overflow: hidden;
-  }
-  .about-points .acc-item summary {
-    display: flex; gap: 12px; align-items: center;
-    padding: 12px 14px;
-    cursor: pointer;
-    list-style: none;
+  .about-points li {
+    display: flex; gap: 12px; align-items: flex-start;
     color: var(--ink-700);
-  }
-  .about-points .acc-item summary::-webkit-details-marker { display: none; }
-  .about-points .acc-item summary::after {
-    content: "";
-    margin-left: auto;
-    width: 8px; height: 8px;
-    border-right: 2px solid var(--ink-400);
-    border-bottom: 2px solid var(--ink-400);
-    transform: rotate(45deg);
-    transition: transform .2s;
-    flex: none;
-  }
-  .about-points .acc-item[open] summary::after {
-    transform: rotate(-135deg);
-    margin-top: 4px;
-  }
-  .about-points .acc-item p {
-    margin: 0;
-    padding: 0 14px 14px 50px;
-    color: var(--ink-500);
-    font-size: .92rem;
   }
   .about-points .tick {
     width: 24px; height: 24px; border-radius: 50%;
@@ -858,10 +828,6 @@
     border-top: 2px dashed var(--navy-100); z-index: 0;
   }
   .process-step { position: relative; text-align: center; --pcolor: var(--gold-500); --pbg: var(--gold-100); }
-  .process-step summary {
-    list-style: none; cursor: default;
-  }
-  .process-step summary::-webkit-details-marker { display: none; }
   .process-step .pnum {
     position: relative; z-index: 1;
     width: 60px; height: 60px; margin: 0 auto 20px;
@@ -900,7 +866,7 @@
     cursor: pointer; transition: background .15s, color .15s, border-color .15s;
     font-family: inherit;
   }
-  .filter.active, .filter:hover { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
+  .filter.active, .filter:hover { background: var(--orange-500); color: #fff; border-color: var(--orange-500); }
   .project-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
   }
@@ -965,7 +931,7 @@
   .project-body h3 { margin: 6px 0 8px; font-size: 1.08rem; }
   .project-body p { color: var(--ink-500); font-size: .9rem; margin: 0 0 14px; }
   .project-meta {
-    display: flex; gap: 14px; flex-wrap: wrap;
+    display: flex; flex-direction: column; gap: 4px;
     padding-top: 14px; border-top: 1px solid var(--line);
     font-size: .82rem; color: var(--ink-500);
   }
@@ -991,31 +957,14 @@
   .partners { background: #fff; border-top: 1px solid var(--line); }
   .partners .section-head { margin-bottom: 40px; }
   .partners-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(16px, 4vw, 48px);
+    display: grid; grid-template-columns: repeat(3, minmax(180px, 240px));
+    gap: 20px; justify-content: center; align-items: center;
   }
   .partner-cell {
     padding: 18px 8px; text-align: center;
     color: var(--ink-500); font-weight: 800; letter-spacing: .04em;
     background: transparent;
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  .partner-cell img {
-    width: auto;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-  .partner-cell img.logo-ntb { max-height: 64px; }
-  .partner-cell img.logo-bin { max-height: 56px; }
-  /* PNG has large vertical padding — scale up so visual weight matches others */
-  .partner-cell img.logo-pacinfrax { max-height: 220px; }
 
   /* ===== CTA BANNER ===== */
   .cta-band {
@@ -1215,14 +1164,14 @@
     .service-grid { grid-template-columns: repeat(2, 1fr); }
     .service-grid.service-grid-4 { grid-template-columns: repeat(2, 1fr); }
     .service-card.has-photo { aspect-ratio: 4/5; min-height: 380px; }
-    .service-card.has-photo .service-desc { display: none; }
+    .service-card.has-photo .service-desc { max-height: 220px; opacity: 1; margin-bottom: 14px; }
     .service-card.has-photo .service-scrim { background: linear-gradient(180deg, rgba(8,19,46,.15) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.94) 100%); }
     .service-photo { min-height: 260px; }
     .connector { display: none; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .why-label { display: none; }
     .project-grid { grid-template-columns: repeat(2, 1fr); }
-    .partners-grid { gap: 24px; }
+    .partners-grid { grid-template-columns: repeat(3, minmax(150px, 220px)); }
     .contact-grid { grid-template-columns: 1fr; }
     .footer .container > .grid { grid-template-columns: 1fr 1fr; }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -1323,10 +1272,8 @@
     /* About */
     .about .about-visual { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 0; }
-    .about-points { margin: 12px 0 16px; gap: 6px; }
-    .about-points .acc-item p { display: none; }
-    .about-points .acc-item[open] p { display: block; padding: 0 12px 10px 46px; font-size: .85rem; }
-    .about-points .acc-item summary { padding: 10px 12px; }
+    .about-points { margin: 12px 0 16px; gap: 8px; }
+    .about-points li { font-size: .9rem; }
     .about-text h2 { font-size: 1.3rem; margin-bottom: .4em; }
     .about .btn { width: 100%; justify-content: center; }
 
@@ -1362,11 +1309,11 @@
     .why-card h3 { font-size: .95rem; margin-bottom: 0; }
     .why-watermark { font-size: 2.2rem; }
 
-    /* Process — accordion stack */
+    /* Process — compact vertical stack */
     .process-grid {
       display: grid !important;
       grid-template-columns: 1fr !important;
-      gap: 6px !important;
+      gap: 8px !important;
     }
     .process-grid::before { display: none; }
     .process-step {
@@ -1374,39 +1321,24 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       background: #fff;
-      padding: 0;
-      overflow: hidden;
-    }
-    .process-step summary {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 12px;
-      cursor: pointer;
-    }
-    .process-step summary::after {
-      content: "";
-      margin-left: auto;
-      width: 8px; height: 8px;
-      border-right: 2px solid var(--ink-400);
-      border-bottom: 2px solid var(--ink-400);
-      transform: rotate(45deg);
-      transition: transform .2s;
-      flex: none;
-    }
-    .process-step[open] summary::after {
-      transform: rotate(-135deg);
-      margin-top: 4px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 4px 10px;
+      align-items: center;
     }
     .process-step .pnum {
       width: 34px; height: 34px; margin: 0;
-      font-size: .8rem; flex: none;
+      font-size: .8rem;
+      grid-row: 1 / span 2;
     }
     .process-step h4 { margin: 0; font-size: .92rem; }
     .process-step p {
-      padding: 0 12px 10px 56px;
-      font-size: .85rem;
+      margin: 0;
+      font-size: .82rem;
       text-align: left;
+      grid-column: 2;
     }
-    .process-step:not([open]) p { display: none; }
 
     /* Projects */
     .projects-head { gap: 10px; margin-bottom: 12px; align-items: stretch; }
@@ -1434,14 +1366,13 @@
     .partners { min-height: 0; padding-block: 36px; }
     .partners .section-head { margin-bottom: 12px; }
     .partners-grid {
-      flex-wrap: nowrap;
+      grid-template-columns: repeat(3, 1fr);
       max-width: none;
       gap: 8px;
     }
     .partner-cell { padding: 8px 2px; }
-    .partner-cell img.logo-ntb { max-height: 40px; }
-    .partner-cell img.logo-bin { max-height: 36px; }
-    .partner-cell img.logo-pacinfrax { max-height: 140px; }
+    .partner-cell img { max-height: 40px !important; }
+    .partner-cell img[src*="PACINFRAX"] { max-height: 72px !important; }
 
     /* CTA band */
     .cta-band {
@@ -1482,22 +1413,6 @@
     .h-scroll > * {
       flex-basis: min(84vw, 280px);
       max-width: min(84vw, 280px);
-    }
-  }
-
-  /* Desktop: process & about look non-interactive; content always visible via JS open */
-  @media (min-width: 641px) {
-    .process-step summary { pointer-events: none; }
-    .process-step summary::after { display: none; }
-    .about-points .acc-item {
-      border: 0; background: transparent; border-radius: 0;
-    }
-    .about-points .acc-item summary {
-      padding: 0; cursor: default; pointer-events: none;
-    }
-    .about-points .acc-item summary::after { display: none; }
-    .about-points .acc-item p {
-      padding: 2px 0 0 36px; margin: 0;
     }
   }
 </style>
@@ -1603,38 +1518,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     window.addEventListener('resize', () => { if (window.innerWidth > 1024) close(); });
   })();
-
-  /* Accordion: one open on mobile; all open on desktop */
-  (function () {
-    var groups = document.querySelectorAll('.acc-group');
-    if (!groups.length) return;
-    var mq = window.matchMedia('(max-width: 640px)');
-
-    function applyMode(mobile) {
-      groups.forEach(function (group) {
-        var items = group.querySelectorAll('.acc-item');
-        items.forEach(function (item, i) {
-          if (!mobile) item.open = true;
-          else item.open = i === 0;
-        });
-      });
-    }
-
-    groups.forEach(function (group) {
-      group.addEventListener('toggle', function (e) {
-        if (!mq.matches) return;
-        var t = e.target;
-        if (!t.classList || !t.classList.contains('acc-item') || !t.open) return;
-        group.querySelectorAll('.acc-item').forEach(function (item) {
-          if (item !== t) item.open = false;
-        });
-      }, true);
-    });
-
-    applyMode(mq.matches);
-    if (mq.addEventListener) mq.addEventListener('change', function (e) { applyMode(e.matches); });
-    else mq.addListener(function (e) { applyMode(e.matches); });
-  })();
 </script>
 
 <!-- ============ HERO ============ -->
@@ -1717,20 +1600,20 @@
         <p class="m-hide">Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông (RianCM Cons) cung cấp dịch vụ tư vấn cho các dự án xây dựng dân dụng và công nghiệp: quản lý dự án, giám sát thi công, tư vấn đầu tư và quản lý chi phí.</p>
         <p class="m-hide">Chúng tôi làm việc theo tư duy thực tế của người trực tiếp triển khai — bám sát hiện trường, kiểm soát chất lượng, tiến độ, chi phí và rủi ro để chủ đầu tư luôn nắm được dự án đang ở đâu.</p>
 
-        <div class="about-points acc-group">
-          <details class="acc-item" open>
-            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Bám sát hiện trường</b></summary>
-            <p>Ra quyết định trên dữ liệu thực tế, không chỉ trên bản vẽ.</p>
-          </details>
-          <details class="acc-item">
-            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Đủ chuẩn – đủ chuyên môn</b></summary>
-            <p>Áp dụng tiêu chuẩn ngành, quy trình rõ ràng cho từng giai đoạn.</p>
-          </details>
-          <details class="acc-item">
-            <summary><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span><b>Minh bạch với chủ đầu tư</b></summary>
-            <p>Báo cáo định kỳ, rõ ràng — đủ cơ sở ra quyết định.</p>
-          </details>
-        </div>
+        <ul class="about-points">
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
+            <span><b>Bám sát hiện trường:</b> Ra quyết định trên dữ liệu thực tế, không chỉ trên bản vẽ.</span>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
+            <span><b>Đủ chuẩn – đủ chuyên môn:</b> Áp dụng tiêu chuẩn ngành, quy trình rõ ràng cho từng giai đoạn.</span>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"/></svg></span>
+            <span><b>Minh bạch với chủ đầu tư:</b> Báo cáo định kỳ, rõ ràng — đủ cơ sở ra quyết định.</span>
+          </li>
+        </ul>
 
         <a href="/gioi-thieu/" class="btn btn-primary" style="background:var(--navy-900);color:#fff;box-shadow:none;">
           Tìm hiểu về RianCM Cons
@@ -1755,7 +1638,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn quản lý dự án</h3>
-          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p></div></div>
+          <div class="service-desc"><div class="service-desc-inner"><p>Điều phối toàn bộ dự án từ chuẩn bị đầu tư đến bàn giao: lập kế hoạch, quản lý tiến độ, chất lượng và chi phí, giữ các bên liên quan cùng một hướng để dự án về đích đúng cam kết.</p></div></div>
           <a href="/dich-vu/quan-ly-du-an/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1766,7 +1649,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn giám sát thi công</h3>
-          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p></div></div>
+          <div class="service-desc"><div class="service-desc-inner"><p>Giám sát chất lượng và khối lượng thi công tại hiện trường, đối chiếu thiết kế và tiêu chuẩn kỹ thuật, phát hiện sớm sai lệch trước khi thành sự cố tốn kém.</p></div></div>
           <a href="/dich-vu/tu-van-giam-sat/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1777,7 +1660,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn đầu tư xây dựng</h3>
-          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p></div></div>
+          <div class="service-desc"><div class="service-desc-inner"><p>Hỗ trợ chủ đầu tư đánh giá và chuẩn bị dự án giai đoạn đầu, làm rõ tính khả thi và các yếu tố ảnh hưởng đến quyết định đầu tư trước khi rót vốn.</p></div></div>
           <a href="/dich-vu/tu-van-dau-tu/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1788,7 +1671,7 @@
         <span class="service-scrim" aria-hidden="true"></span>
         <div class="service-content">
           <h3>Tư vấn quản lý chi phí</h3>
-          <div class="service-desc m-hide"><div class="service-desc-inner"><p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p></div></div>
+          <div class="service-desc"><div class="service-desc-inner"><p>Kiểm soát chi phí xuyên suốt: dự toán, đo bóc khối lượng, quản lý thanh toán và biến động giá, giúp chủ đầu tư chủ động ngân sách.</p></div></div>
           <a href="/dich-vu/quan-ly-chi-phi/" class="service-link">Xem chi tiết
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1868,42 +1751,32 @@
       <h2>05 bước đồng hành cùng dự án của bạn</h2>
       <p class="m-hide">Một quy trình rõ ràng giúp chủ đầu tư dễ theo dõi, dễ ra quyết định và luôn biết dự án đang ở đâu.</p>
     </div>
-    <div class="process-grid acc-group">
-      <details class="process-step acc-item" open>
-        <summary>
-          <div class="pnum">01</div>
-          <h4>Khảo sát &amp; hiểu dự án</h4>
-        </summary>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="pnum">01</div>
+        <h4>Khảo sát &amp; hiểu dự án</h4>
         <p>Nắm rõ mục tiêu chủ đầu tư, ràng buộc kỹ thuật và tài chính.</p>
-      </details>
-      <details class="process-step acc-item">
-        <summary>
-          <div class="pnum">02</div>
-          <h4>Đánh giá &amp; đề xuất</h4>
-        </summary>
+      </div>
+      <div class="process-step">
+        <div class="pnum">02</div>
+        <h4>Đánh giá &amp; đề xuất</h4>
         <p>Phân tích khả thi, đề xuất phạm vi tư vấn và các rủi ro cần kiểm soát.</p>
-      </details>
-      <details class="process-step acc-item">
-        <summary>
-          <div class="pnum">03</div>
-          <h4>Lập kế hoạch triển khai</h4>
-        </summary>
+      </div>
+      <div class="process-step">
+        <div class="pnum">03</div>
+        <h4>Lập kế hoạch triển khai</h4>
         <p>Xây dựng tiến độ, ngân sách và quy trình phối hợp các bên.</p>
-      </details>
-      <details class="process-step acc-item">
-        <summary>
-          <div class="pnum">04</div>
-          <h4>Kiểm soát &amp; giám sát</h4>
-        </summary>
+      </div>
+      <div class="process-step">
+        <div class="pnum">04</div>
+        <h4>Kiểm soát &amp; giám sát</h4>
         <p>Bám sát hiện trường, đối chiếu tiêu chuẩn, báo cáo định kỳ.</p>
-      </details>
-      <details class="process-step acc-item">
-        <summary>
-          <div class="pnum">05</div>
-          <h4>Nghiệm thu &amp; bàn giao</h4>
-        </summary>
+      </div>
+      <div class="process-step">
+        <div class="pnum">05</div>
+        <h4>Nghiệm thu &amp; bàn giao</h4>
         <p>Đảm bảo dự án về đích đúng chất lượng, tiến độ và chi phí cam kết.</p>
-      </details>
+      </div>
     </div>
   </div>
 </section>
@@ -1951,7 +1824,7 @@
           <p class="m-hide">RianCM cung cấp dịch vụ tư vấn cải tạo nội thất văn phòng, tối ưu công năng, môi trường làm việc và trải nghiệm sử dụng; phối hợp yêu cầu thiết kế, kỹ thuật và thi công để bảo đảm tính thống nhất của không gian.</p>
           <div class="project-meta">
             <span>Vai trò: <strong>Tư vấn cải tạo</strong></span>
-            <span>Loại: <strong>Văn phòng</strong></span>
+            <span>Địa điểm: <strong>TP. Hồ Chí Minh</strong></span>
           </div>
         </div>
       </article>
@@ -1974,13 +1847,13 @@
     </div>
     <div class="partners-grid">
       <div class="partner-cell">
-        <img class="logo-ntb" src="/assets/NTB-logo.svg" alt="Logo NTB — Nam Thăng Bình" />
+        <img src="/assets/NTB-logo.svg" alt="Logo NTB — Nam Thăng Bình" style="max-height: 56px; width: auto; margin: 0 auto;" />
       </div>
       <div class="partner-cell">
-        <img class="logo-bin" src="/assets/Bin-Coration-logo-091023 1.svg" alt="Logo BIN Corporation Group" />
+        <img src="/assets/Bin-Coration-logo-091023 1.svg" alt="Logo BIN Corporation Group" style="max-height: 48px; width: auto; margin: 0 auto;" />
       </div>
       <div class="partner-cell">
-        <img class="logo-pacinfrax" src="/assets/PACINFRAX-944x944-M.png" alt="Logo PACINFRAX" />
+        <img src="/assets/PACINFRAX-944x944-M.png" alt="Logo PACINFRAX" style="max-height: 120px; width: auto; margin: 0 auto;" />
       </div>
     </div>
   </div>

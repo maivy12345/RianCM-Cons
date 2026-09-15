@@ -486,7 +486,7 @@ body.menu-open { overflow: hidden; }
   .project-cover { aspect-ratio: 16/10; }
   .project-body { padding: 14px 14px 16px; }
   .project-body h3 { font-size: .98rem; margin: 4px 0 8px; }
-  .project-meta { font-size: .75rem; gap: 8px; padding-top: 10px; }
+  .project-meta { font-size: .75rem; gap: 4px; padding-top: 10px; }
   .project-grid--compact .project-body p { display: none; }
 
   /* News / services cards */
@@ -555,8 +555,8 @@ body.menu-open { overflow: hidden; }
   cursor: pointer; transition: background .15s, color .15s, border-color .15s;
   font-family: inherit;
 }
-.filter:hover { background: var(--navy-50); color: var(--orange-500); }
-.filter.active { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
+.filter:hover { background: var(--navy-50); color: var(--orange-500); border-color: rgba(242,101,34,.25); }
+.filter.active { background: var(--orange-500); color: #fff; border-color: var(--orange-500); }
 
 .project-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
@@ -673,7 +673,7 @@ body.menu-open { overflow: hidden; }
 .project-body h3 { margin: 8px 0 10px; font-size: 1.08rem; line-height: 1.35; }
 .project-body p { color: var(--ink-500); font-size: .92rem; margin: 0 0 14px; flex: 1; }
 .project-meta {
-  display: flex; gap: 14px; flex-wrap: wrap;
+  display: flex; flex-direction: column; gap: 4px;
   padding-top: 14px; border-top: 1px solid var(--line);
   font-size: .82rem; color: var(--ink-500);
 }
@@ -726,7 +726,7 @@ body.menu-open { overflow: hidden; }
   transition: background .15s, color .15s, border-color .15s;
 }
 .cat-quicknav a:hover { background: var(--navy-50); color: var(--orange-500); border-color: rgba(242,101,34,.25); }
-.cat-quicknav a.is-active { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
+.cat-quicknav a.is-active { background: var(--orange-500); color: #fff; border-color: var(--orange-500); }
 .cat-quicknav a .n {
   font-size: .72rem; font-weight: 800; opacity: .7;
   border-left: 1px solid rgba(0,0,0,.12);
@@ -762,7 +762,7 @@ body.menu-open { overflow: hidden; }
   overflow: hidden;
 }
 .project-grid--compact .project-meta {
-  padding-top: 10px; gap: 10px; font-size: .74rem;
+  padding-top: 10px; gap: 4px; font-size: .74rem;
 }
 .project-grid--compact .project-link {
   margin-top: 10px; padding: 8px 14px; font-size: .8rem;
@@ -772,6 +772,7 @@ body.menu-open { overflow: hidden; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
+  .project-grid { grid-template-columns: 1fr; }
   .projects-toolbar { flex-direction: column; align-items: flex-start; }
 }
 
@@ -969,19 +970,20 @@ body.menu-open { overflow: hidden; }
   color: var(--ink-500); font-size: .78rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
 }
-.services-grid-4 .news-body time {
-  display: inline-block;
+.services-grid-4 .news-cover .tag {
   background: var(--orange-500);
   color: #fff;
-  padding: 5px 10px;
-  border-radius: 999px;
   font-size: .68rem;
-  letter-spacing: .08em;
+  max-width: calc(100% - 28px);
+  white-space: normal;
+  line-height: 1.35;
 }
+.services-grid-4 .news-body h3 { margin-top: 0; }
 .news-body h3 { margin: 8px 0 8px; font-size: 1.02rem; line-height: 1.4; }
 .news-body p { color: var(--ink-500); font-size: .9rem; margin: 0; }
 
 @media (max-width: 1024px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .news-grid { grid-template-columns: 1fr; } }
 
 /* Services listing — 4 cards in a 2x2 grid with photo covers */
 .services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1080px; margin-inline: auto; }
@@ -999,6 +1001,9 @@ body.menu-open { overflow: hidden; }
 .news-card:hover .news-cover.has-photo { transform: scale(1.02); }
 .services-grid-4 .news-body { padding: 24px 24px 26px; }
 .services-grid-4 .news-body h3 { font-size: 1.15rem; }
+@media (max-width: 720px) {
+  .services-grid-4 { grid-template-columns: 1fr; gap: 20px; }
+}
 
 /* ==========================================================================
    SERVICE DETAIL (/dich-vu/{ten-dich-vu})
