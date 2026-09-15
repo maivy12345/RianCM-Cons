@@ -936,6 +936,19 @@
     font-size: .82rem; color: var(--ink-500);
   }
   .project-meta strong { color: var(--navy-900); }
+  .project-link {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; margin-top: 12px;
+    padding: 10px 16px; border-radius: 999px;
+    font-weight: 700; font-size: .88rem; line-height: 1.2;
+    color: var(--navy-900); background: #fff;
+    border: 1.5px solid var(--line);
+    white-space: nowrap; text-align: center;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .project-link:hover { color: var(--orange-500); border-color: var(--orange-500); }
+  .project-link svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform .2s; }
+  .project-link:hover svg { transform: translateX(3px); }
 
   .see-all {
     display: flex; align-items: center; justify-content: center; gap: 10px;
