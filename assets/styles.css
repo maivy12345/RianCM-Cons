@@ -920,6 +920,22 @@ body.menu-open { overflow: hidden; }
 .svc-phase h3 { margin: 2px 0 6px; font-size: 1.02rem; }
 .svc-phase p { margin: 0; font-size: .9rem; color: var(--ink-500); }
 
+/* Scope section — construction background */
+.pd-section--scope {
+  position: relative;
+  background: #F4F7FC url('/assets/scope-bg.jpg') center top / cover no-repeat;
+  overflow: hidden;
+  isolation: isolate;
+}
+.pd-section--scope::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.75) 45%, rgba(255,255,255,.55) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.pd-section--scope > .container { position: relative; z-index: 1; }
+
 /* Scope layout — 5 phase cards with photos, used inside .pd-section */
 .scope-phases {
   list-style: none; padding: 0; margin: 32px 0 0;

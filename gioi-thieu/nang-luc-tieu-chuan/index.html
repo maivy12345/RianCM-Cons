@@ -1,0 +1,983 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08132E">
+<title>Năng lực & Tiêu chuẩn áp dụng — RianCM Cons</title>
+<meta name="description" content="Năng lực cốt lõi và hệ tiêu chuẩn — cam kết dịch vụ của RianCM: quản lý dự án toàn diện, kiểm soát chất lượng, tuân thủ quy định và phối hợp chủ động.">
+<link rel="icon" type="image/svg+xml" href="/assets/logofav.svg">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950: #08132E;
+    --navy-900: #0F1F44;
+    --navy-800: #17295A;
+    --navy-700: #22366F;
+    --navy-100: #E7ECF6;
+    --navy-50:  #F4F6FB;
+    --gold-500: #F5B417;
+    --gold-400: #FBC531;
+    --gold-100: #FFF3D0;
+    --orange-500: #F26522;
+    --orange-400: #FF7A3D;
+    --ink-900: #0B1220;
+    --ink-700: #2A3450;
+    --ink-500: #5B6580;
+    --ink-400: #7F89A6;
+    --ink-300: #B5BDD1;
+    --line: #E4E8F1;
+    --bg: #FDFCFA;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px rgba(15,31,68,.06);
+    --shadow-md: 0 8px 24px rgba(15,31,68,.08);
+    --shadow-lg: 0 24px 60px rgba(15,31,68,.14);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { overflow-x: clip; }
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-900);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: var(--navy-900);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0 0 .6em;
+  }
+  h1 { font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 800; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; }
+  h3 { font-size: 1.18rem; font-weight: 700; }
+  p  { margin: 0 0 1em; color: var(--ink-700); }
+
+  .container { width: 100%; max-width: 1280px; margin: 0 auto; padding-inline: 24px; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center; gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: .8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .18em;
+    color: var(--orange-500);
+    margin-bottom: 18px;
+  }
+  .eyebrow::before {
+    content: ""; width: 22px; height: 2px; background: var(--gold-500);
+  }
+
+  /* ===== TOP BAR ===== */
+  .topbar { background: var(--navy-950); color: #C8D2E8; font-size: .82rem; }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-block: 8px; flex-wrap: wrap;
+  }
+  .topbar a { color: #DDE4F3; }
+  .topbar .divider { color: #3A4870; margin: 0 10px; }
+  .topbar-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .topbar svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; color: var(--gold-500); }
+
+  /* ===== HEADER / NAV ===== */
+  .header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-block: 14px; gap: 24px;
+  }
+  .brand { display: inline-flex; align-items: center; }
+  .brand-logo { height: 52px; width: auto; display: block; }
+  .footer .brand-logo { height: 56px; }
+  @media (max-width: 640px) { .brand-logo { height: 42px; } }
+
+  .menu { display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+  .menu > li { list-style: none; position: relative; }
+  .menu > li > a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-weight: 600; font-size: .95rem;
+    padding-block: 10px; color: var(--navy-900);
+  }
+  .menu > li > a:hover,
+  .menu > li > a.is-active { color: var(--orange-500); }
+  .menu > li > a.is-active { position: relative; }
+  .menu > li > a.is-active::after {
+    content: ""; position: absolute; left: 0; right: 14px; bottom: 4px;
+    height: 2px; background: var(--gold-500);
+  }
+  .menu .chev { width: 12px; height: 12px; opacity: .7; }
+  .dropdown {
+    position: absolute; top: 100%; left: -18px;
+    min-width: 280px; padding: 10px;
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 12px; box-shadow: var(--shadow-lg);
+    opacity: 0; pointer-events: none; transform: translateY(6px);
+    transition: opacity .15s, transform .15s;
+  }
+  .menu > li:hover > .dropdown,
+  .menu > li:focus-within > .dropdown {
+    opacity: 1; pointer-events: auto; transform: translateY(0);
+  }
+  .dropdown a {
+    display: block; padding: 10px 14px;
+    border-radius: 8px; color: var(--navy-900);
+    font-size: .93rem; font-weight: 500;
+  }
+  .dropdown a:hover { background: var(--navy-50); color: var(--orange-500); }
+  .dropdown a.is-active { background: var(--navy-50); color: var(--orange-500); }
+
+  .nav-cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--navy-900); color: #fff;
+    padding: 12px 18px; border-radius: 999px;
+    font-weight: 700; font-size: .92rem;
+    white-space: nowrap; text-align: center; flex-shrink: 0;
+    transition: transform .15s, background .15s;
+  }
+  .nav-cta:hover { background: var(--orange-500); transform: translateY(-1px); }
+  .nav-cta svg { width: 14px; height: 14px; }
+
+  .burger {
+    display: none;
+    width: 42px; height: 42px;
+    border: 1px solid var(--line); background: #fff;
+    border-radius: 10px; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .burger span, .burger span::before, .burger span::after {
+    content: ""; display: block; width: 20px; height: 2px; background: var(--navy-900);
+    position: relative;
+  }
+  .burger span::before { position: absolute; top: -6px; }
+  .burger span::after  { position: absolute; top: 6px;  }
+
+  /* ===== BUTTONS ===== */
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 24px; border-radius: 999px;
+    font-weight: 700; font-size: .95rem; line-height: 1.2;
+    white-space: nowrap; text-align: center; flex-shrink: 0;
+    transition: transform .15s, background .15s, color .15s, box-shadow .15s;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--gold-500); color: var(--navy-950);
+    box-shadow: 0 10px 28px rgba(245,180,23,.35);
+  }
+  .btn-primary:hover { background: var(--gold-400); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: #fff;
+    border-color: rgba(255,255,255,.32);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: var(--gold-400); }
+  .btn-dark { background: var(--navy-900); color: #fff; }
+  .btn-dark:hover { background: var(--orange-500); transform: translateY(-2px); }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* ===== PAGE BANNER ===== */
+  .page-banner {
+    position: relative;
+    background: linear-gradient(100deg, #050B1E 0%, #08132E 45%, #0B1B44 75%, #12295F 100%);
+    color: #EAF0FF;
+    overflow: hidden;
+    isolation: isolate;
+    padding-block: 72px 84px;
+  }
+  .page-banner::after {
+    content:""; position: absolute; inset: 0;
+    background:
+      radial-gradient(700px 500px at 88% 30%, rgba(245,180,23,.22), transparent 55%),
+      radial-gradient(500px 400px at 95% 80%, rgba(242,101,34,.14), transparent 55%);
+    pointer-events: none; z-index: 0;
+  }
+  .page-banner .blueprint {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    opacity: .45;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700'><g fill='none' stroke='%233A6FC7' stroke-width='1.1' opacity='0.7'><path d='M420 640 L420 300 L560 240 L560 580 Z'/><path d='M420 560 L560 500'/><path d='M420 480 L560 420'/><path d='M420 400 L560 340'/><path d='M560 580 L720 520 L720 200 L560 240'/><path d='M560 500 L720 440'/><path d='M560 420 L720 360'/><path d='M560 340 L720 280'/><path d='M720 520 L860 460 L860 160 L720 200'/><path d='M720 440 L860 380'/><path d='M720 360 L860 300'/><path d='M720 280 L860 220'/><path d='M480 300 L480 640 M520 280 L520 640 M600 240 L600 580 M660 220 L660 560 M760 200 L760 520 M820 180 L820 480'/></g></svg>");
+    background-size: cover; background-position: 60% center;
+  }
+  .page-banner .slash {
+    position: absolute; z-index: 2; pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    height: 2px; opacity: .35;
+  }
+  .page-banner .slash.s1 { top: 25%; right: 8%; width: 260px; transform: rotate(58deg); opacity:.5; }
+  .page-banner .slash.s2 { top: 65%; right: 22%; width: 200px; transform: rotate(58deg); }
+  .page-banner .container { position: relative; z-index: 5; }
+  .page-banner .eyebrow { color: var(--gold-400); margin-bottom: 18px; }
+  .page-banner .eyebrow::before { background: var(--gold-400); }
+  .page-banner h1 {
+    color: #fff; margin-bottom: .35em;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    max-width: 820px;
+  }
+  .page-banner h1 .accent {
+    background: linear-gradient(90deg, #FBC531 0%, #F5B417 60%, #F5B417 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .page-banner .lead {
+    color: #B7C2E0; font-size: 1.05rem; max-width: 760px;
+    margin-bottom: 26px;
+  }
+
+  .crumbs {
+    display: flex; align-items: center; gap: 8px;
+    color: #94A2C6; font-size: .82rem; font-weight: 600;
+    letter-spacing: .04em;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+  .crumbs a { color: #C4CFE8; }
+  .crumbs a:hover { color: var(--gold-400); }
+  .crumbs .sep { color: #4A5B84; }
+  .crumbs .here { color: var(--gold-400); }
+
+  .fact-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+  .fact-chips .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(120,180,255,.22);
+    color: #DDE4F3;
+    border-radius: 999px;
+    font-size: .84rem; font-weight: 600;
+    backdrop-filter: blur(6px);
+  }
+  .fact-chips .chip svg { width: 14px; height: 14px; color: var(--gold-400); }
+
+  section { padding-block: 92px; }
+  .section-head { text-align: center; margin: 0 auto 56px; max-width: 780px; }
+  .section-head p { color: var(--ink-500); font-size: 1.05rem; max-width: 720px; margin-inline: auto; }
+  .section-head.left { text-align: left; margin-inline: 0; max-width: 780px; }
+  .section-head h2 span.accent { color: var(--orange-500); }
+
+  /* ===== CAPABILITIES ===== */
+  .capabilities { background: var(--bg); }
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cap-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px 26px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+  .cap-card::before {
+    content: ""; position: absolute; left: 26px; right: 26px; bottom: 0;
+    height: 3px; background: var(--orange-500);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s;
+  }
+  .cap-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(15,31,68,.10);
+    border-color: rgba(242,101,34,.25);
+  }
+  .cap-card:hover::before { transform: scaleX(1); }
+  .cap-num {
+    position: absolute; top: 22px; right: 24px;
+    font-family: 'Manrope', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: rgba(15,31,68,.08); letter-spacing: -.03em; line-height: 1;
+  }
+  .cap-icon {
+    width: 54px; height: 54px; border-radius: 14px;
+    background: var(--navy-900); color: var(--gold-500);
+    display: grid; place-items: center; margin-bottom: 20px;
+    box-shadow: 0 10px 24px rgba(15,31,68,.15);
+  }
+  .cap-icon svg { width: 26px; height: 26px; }
+  .cap-card h3 { margin-bottom: 10px; font-size: 1.08rem; line-height: 1.35; }
+  .cap-card p { font-size: .95rem; color: var(--ink-500); line-height: 1.65; margin: 0; }
+
+  /* ===== STANDARDS BAND ===== */
+  .standards {
+    background:
+      linear-gradient(180deg, rgba(5,10,25,.68) 0%, rgba(8,19,46,.82) 100%),
+      url("/assets/why-bg.jpg") center/cover no-repeat;
+    color: #EAF0FF;
+    position: relative;
+    overflow: hidden;
+  }
+  .standards::before {
+    content:""; position: absolute; inset: 0;
+    background:
+      radial-gradient(700px 400px at 50% -10%, rgba(245,180,23,.14), transparent 60%),
+      radial-gradient(500px 300px at 90% 10%, rgba(245,180,23,.08), transparent 60%);
+    pointer-events: none; z-index: 1;
+  }
+  .standards .container { position: relative; z-index: 2; }
+  .standards .section-head h2 { color: #fff; font-size: clamp(1.8rem, 3.4vw, 2.9rem); }
+  .standards .section-head h2 .accent { color: var(--gold-400); }
+  .standards .section-head p { color: #B7C2DE; }
+
+  .std-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+  }
+  .std-col {
+    background: linear-gradient(180deg, rgba(15,31,68,.55) 0%, rgba(8,19,46,.62) 100%);
+    border: 1px solid rgba(245,180,23,.18);
+    border-radius: 20px;
+    padding: 34px 30px;
+    backdrop-filter: blur(6px);
+    position: relative;
+    isolation: isolate;
+  }
+  .std-col::before {
+    content:""; position: absolute; inset: 0;
+    background: radial-gradient(140px 70px at 50% 0%, rgba(245,180,23,.22), transparent 70%);
+    pointer-events: none; opacity: .8;
+    border-radius: inherit;
+  }
+  .std-col-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(245,180,23,.18);
+    position: relative;
+  }
+  .std-col-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(245,180,23,.08);
+    border: 1px solid rgba(245,180,23,.22);
+    color: var(--gold-400);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .std-col-icon svg { width: 24px; height: 24px; }
+  .std-col-label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800; font-size: .78rem;
+    color: var(--gold-400);
+    letter-spacing: .3em; text-transform: uppercase;
+    display: block; margin-bottom: 4px;
+  }
+  .std-col-head h3 {
+    color: #fff; margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .std-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 18px;
+  }
+  .std-list li {
+    display: grid; grid-template-columns: 34px 1fr; gap: 14px;
+    align-items: start;
+  }
+  .std-check {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: rgba(245,180,23,.12);
+    border: 1px solid rgba(245,180,23,.35);
+    color: var(--gold-400);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .std-check svg { width: 16px; height: 16px; }
+  .std-item h4 {
+    color: #fff; font-size: 1rem; font-weight: 700;
+    margin: 0 0 6px;
+    font-family: 'Manrope', sans-serif;
+  }
+  .std-item p {
+    color: #B7C2DE; font-size: .93rem; line-height: 1.65; margin: 0;
+  }
+
+  /* ===== PILLARS STRIP ===== */
+  .pillars { background: #fff; }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .pillar-card {
+    background: var(--navy-50);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 24px;
+    text-align: left;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(245,180,23,.4);
+  }
+  .pillar-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--orange-500);
+    display: grid; place-items: center;
+    margin-bottom: 16px;
+  }
+  .pillar-icon svg { width: 22px; height: 22px; }
+  .pillar-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: .82rem; font-weight: 800;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--orange-500);
+    margin-bottom: 10px;
+  }
+  .pillar-card p { margin: 0; color: var(--ink-500); font-size: .95rem; line-height: 1.65; }
+
+  /* ===== CTA BAND ===== */
+  .cta-band {
+    padding: 0;
+    background:
+      linear-gradient(90deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.55) 32%, transparent 55%),
+      url("/assets/cta-band.png") right center / cover no-repeat,
+      linear-gradient(120deg, #08132E 0%, #17295A 100%);
+    color: #fff;
+    border-radius: 24px;
+    margin-block: 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .cta-inner { display: block; padding: 64px 56px; position: relative; z-index: 2; max-width: 720px; }
+  .cta-band h2 span.accent { white-space: nowrap; }
+  .cta-band .eyebrow { margin-bottom: 22px; }
+  .cta-band h2 {
+    color: #fff; font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+    line-height: 1.25; margin-bottom: 18px;
+  }
+  .cta-band h2 .accent { color: var(--gold-400); }
+  .cta-band p { color: #B7C2E0; margin: 0 0 32px; max-width: 480px; }
+  .cta-band .cta-row { justify-content: flex-start; margin-bottom: 0; gap: 14px; }
+  .cta-band .btn { padding: 15px 28px; font-size: .98rem; }
+  .cta-band .btn-primary svg:first-child {
+    background: transparent; padding: 0;
+    width: 18px; height: 18px; color: var(--navy-950);
+  }
+  @media (max-width: 900px) {
+    .cta-band {
+      min-height: auto;
+      background:
+        linear-gradient(180deg, rgba(8,19,46,.92) 0%, rgba(8,19,46,.75) 55%, rgba(8,19,46,.35) 100%),
+        url("/assets/cta-band.png") center bottom / cover no-repeat,
+        linear-gradient(120deg, #08132E 0%, #17295A 100%);
+    }
+    .cta-inner { padding: 44px 28px; max-width: 100%; }
+  }
+
+  /* ===== FOOTER ===== */
+  .footer { background: var(--navy-950); color: #B4BFDA; padding-block: 70px 30px; }
+  .footer .container > .grid {
+    display: grid; grid-template-columns: 1.4fr .8fr .8fr 1fr; gap: 40px;
+    padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .footer h5 { color: #fff; font-family: 'Manrope', sans-serif; font-size: 1rem; margin: 0 0 18px; }
+  .footer a { color: #B4BFDA; }
+  .footer a:hover { color: var(--gold-400); }
+  .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: .93rem; }
+  .footer .about-blurb { max-width: 340px; margin: 18px 0 20px; font-size: .93rem; color: #E8EEF8; }
+  .socials { display: flex; gap: 10px; }
+  .socials a {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(255,255,255,.05); display: grid; place-items: center;
+    color: #B4BFDA; border: 1px solid rgba(255,255,255,.08);
+  }
+  .socials a:hover { background: var(--gold-500); color: var(--navy-950); border-color: var(--gold-500); }
+  .socials svg { width: 16px; height: 16px; }
+  .contact-lite li { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; }
+  .contact-lite svg { width: 16px; height: 16px; color: var(--gold-500); flex: none; margin-top: 3px; }
+  .bottom-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 22px; font-size: .84rem; color: #7F89A6;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .bottom-bar a { color: #B4BFDA; }
+  .bottom-bar a:hover { color: var(--gold-400); }
+
+  /* ===== MOBILE MENU DRAWER ===== */
+  .nav-overlay {
+    position: fixed; inset: 0; background: rgba(8,19,46,.55);
+    opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 45;
+  }
+  .nav-overlay.is-open { opacity: 1; pointer-events: auto; }
+  body.menu-open { overflow: hidden; }
+
+  @media (max-width: 1024px) {
+    .cap-grid { grid-template-columns: repeat(2, 1fr); }
+    .std-grid { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .footer .container > .grid { grid-template-columns: 1fr 1fr; }
+    .nav-cta { display: none; }
+    .burger { display: inline-flex; }
+    nav {
+      position: fixed; top: 0; right: 0; height: 100dvh; width: min(320px, 82vw);
+      background: #fff; box-shadow: -20px 0 40px rgba(15,31,68,.15);
+      transform: translateX(100%); transition: transform .25s;
+      padding: 72px 22px 32px; overflow-y: auto; z-index: 50;
+    }
+    nav.is-open { transform: translateX(0); }
+    .menu { flex-direction: column; align-items: stretch; gap: 4px; }
+    .menu > li { border-bottom: 1px solid var(--line); }
+    .menu > li:last-child { border-bottom: 0; }
+    .menu > li > a { padding: 14px 4px; font-size: 1rem; justify-content: space-between; width: 100%; }
+    .menu > li > a.is-active::after { display: none; }
+    .dropdown {
+      position: static; opacity: 1; pointer-events: auto; transform: none;
+      box-shadow: none; border: 0; border-radius: 0;
+      padding: 0 8px 8px; min-width: 0;
+    }
+    .dropdown a { padding: 8px 12px; font-size: .9rem; }
+    .burger.is-open { position: fixed; top: 18px; right: 22px; z-index: 55; }
+  }
+  @media (max-width: 640px) {
+    section { padding-block: 56px; }
+    .container { padding-inline: 18px; }
+    .page-banner { padding-block: 48px 60px; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .footer .container > .grid { grid-template-columns: 1fr; }
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .cta-row .btn { width: 100%; justify-content: center; }
+    .cta-band .cta-row { justify-content: flex-start; }
+    .cta-band { margin-inline: 0; border-radius: 16px; }
+    .cta-inner { padding: 44px 28px; }
+    .section-head { margin-bottom: 40px; }
+    .std-col { padding: 28px 22px; }
+    .topbar { font-size: .78rem; }
+    .topbar-inner { justify-content: center; gap: 8px; padding-block: 6px; }
+    .topbar > .container > div:first-child { display: none; }
+    .topbar-right { justify-content: center; gap: 8px; }
+    .topbar-right > *:nth-child(n+4) { display: none; }
+    .footer { padding-block: 50px 24px; }
+    .bottom-bar { flex-direction: column; text-align: center; }
+    .socials { justify-content: flex-start; }
+  }
+</style>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L3 6 v6 c0 5 3.5 8 9 10 5.5-2 9-5 9-10 V6z"/></svg>
+      Đơn vị tư vấn quản lý xây dựng — hoạt động tại TP.HCM &amp; toàn quốc
+    </div>
+    <div class="topbar-right">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg> Hotline: (028) 7300 2826</span>
+      <span class="divider">|</span>
+      <a href="mailto:support@riancm.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>support@riancm.com</a>
+      <span class="divider">|</span>
+      <span>T2–T6, 8:00–17:30</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="header">
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="RianCM — Right Angle Construction Management">
+      <img class="brand-logo" src="/assets/logo.png" alt="RianCM Cons — Right Angle Construction Management" width="400" height="89" decoding="async" />
+    </a>
+
+    <nav>
+      <ul class="menu">
+        <li>
+          <a href="/gioi-thieu/" class="is-active">Giới thiệu
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="/gioi-thieu/">Giới thiệu chung</a>
+            <a href="/gioi-thieu/nhan-luc/">Nhân lực / Đội ngũ</a>
+            <a href="/gioi-thieu/nang-luc-tieu-chuan/" class="is-active">Năng lực &amp; Tiêu chuẩn áp dụng</a>
+            <a href="/gioi-thieu/doi-tac/">Đối tác / Khách hàng</a>
+          </div>
+        </li>
+        <li>
+          <a href="/dich-vu/">Dịch vụ
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="/dich-vu/quan-ly-du-an/">Tư vấn quản lý dự án</a>
+            <a href="/dich-vu/tu-van-giam-sat/">Tư vấn giám sát thi công</a>
+            <a href="/dich-vu/tu-van-dau-tu/">Tư vấn đầu tư</a>
+            <a href="/dich-vu/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a>
+          </div>
+        </li>
+        <li>
+          <a href="/du-an/">Dự án
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="/du-an/quan-ly-du-an/">Quản lý dự án</a>
+            <a href="/du-an/tu-van-giam-sat/">Tư vấn giám sát</a>
+            <a href="/du-an/tu-van-dau-tu/">Tư vấn đầu tư</a>
+            <a href="/du-an/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a>
+          </div>
+        </li>
+        <li><a href="/hoat-dong/">Hoạt động</a></li>
+        <li><a href="/lien-he/">Liên hệ</a></li>
+      </ul>
+    </nav>
+
+    <a href="/lien-he/" class="nav-cta">
+      Gửi yêu cầu tư vấn
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+  </div>
+</header>
+<div class="nav-overlay" aria-hidden="true"></div>
+
+<script>
+  (function(){
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('header nav');
+    const menu = document.querySelector('.menu');
+    const overlay = document.querySelector('.nav-overlay');
+    if (!burger || !nav) return;
+    nav.id = nav.id || 'site-nav';
+    const close = () => {
+      nav.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+      document.body.classList.remove('menu-open');
+    };
+    const open = () => {
+      nav.classList.add('is-open');
+      overlay.classList.add('is-open');
+      burger.classList.add('is-open');
+      burger.setAttribute('aria-expanded','true');
+      document.body.classList.add('menu-open');
+    };
+    burger.addEventListener('click', () => nav.classList.contains('is-open') ? close() : open());
+    overlay.addEventListener('click', close);
+    menu?.addEventListener('click', e => { if (e.target.tagName === 'A') close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1024) close(); });
+  })();
+</script>
+
+<!-- ============ PAGE BANNER ============ -->
+<section class="page-banner">
+  <div class="blueprint" aria-hidden="true"></div>
+  <span class="slash s1" aria-hidden="true"></span>
+  <span class="slash s2" aria-hidden="true"></span>
+
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Trang chủ</a>
+      <span class="sep">/</span>
+      <a href="/gioi-thieu/">Giới thiệu</a>
+      <span class="sep">/</span>
+      <span class="here">Năng lực &amp; Tiêu chuẩn áp dụng</span>
+    </nav>
+
+    <h1>Năng lực &amp; <span class="accent">Tiêu chuẩn áp dụng</span></h1>
+    <p class="lead">
+      Năm năng lực cốt lõi cùng hệ tiêu chuẩn thực hiện và cam kết dịch vụ — cơ sở để RianCM đồng hành cùng Chủ đầu tư kiểm soát dự án một cách chủ động, minh bạch và có trách nhiệm.
+    </p>
+
+    <div class="fact-chips">
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
+        05 năng lực cốt lõi
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/></svg>
+        Tiêu chuẩn thực hiện
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        Cam kết dịch vụ
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NĂNG LỰC CỐT LÕI ============ -->
+<section class="capabilities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Năng lực cốt lõi</span>
+      <h2>Năm năng lực tạo nên <span class="accent">hiệu quả dự án</span></h2>
+      <p>Từ tổ chức toàn diện đến kiểm soát hiện trường, điều phối và quản trị rủi ro — mỗi năng lực phục vụ mục tiêu kiểm soát chủ động cho Chủ đầu tư.</p>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap-card">
+        <div class="cap-num">01</div>
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Quản lý dự án toàn diện</h3>
+        <p>Tổ chức và kiểm soát xuyên suốt các giai đoạn của dự án, bảo đảm mục tiêu, phạm vi và trách nhiệm được xác định rõ ràng.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-num">02</div>
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22V8l10-5 10 5v14"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <h3>Quản lý thi công và giám sát hiện trường</h3>
+        <p>Theo dõi sát quá trình thi công, kiểm soát chất lượng, khối lượng, tiến độ và an toàn theo hồ sơ, tiêu chuẩn và yêu cầu được phê duyệt.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-num">03</div>
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <h3>Khả năng điều phối dự án phức tạp</h3>
+        <p>Kết nối Chủ đầu tư, đơn vị thiết kế, nhà thầu, nhà cung cấp và các bên liên quan nhằm duy trì luồng thông tin thống nhất và xử lý kịp thời các điểm giao diện.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-num">04</div>
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Kiểm soát chất lượng, tiến độ và chi phí</h3>
+        <p>Theo dõi các yếu tố ảnh hưởng trực tiếp đến hiệu quả dự án, nhận diện sai lệch và đề xuất phương án xử lý phù hợp.</p>
+      </article>
+
+      <article class="cap-card">
+        <div class="cap-num">05</div>
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="M12 8v5M12 16h.01"/></svg>
+        </div>
+        <h3>Quản lý thông tin và rủi ro</h3>
+        <p>Tổ chức hệ thống báo cáo, hồ sơ và dữ liệu dự án rõ ràng; hỗ trợ Chủ đầu tư nhận diện vấn đề và đưa ra quyết định đúng thời điểm.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIÊU CHUẨN & CAM KẾT ============ -->
+<section class="standards">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--orange-500);">Tiêu chuẩn &amp; Cam kết</span>
+      <h2>Chuẩn thực hiện &amp; <span class="accent">cam kết dịch vụ</span></h2>
+      <p>RianCM triển khai dịch vụ trên cơ sở tuân thủ các yêu cầu pháp lý, tiêu chuẩn kỹ thuật và phạm vi đã thống nhất; đồng thời duy trì trách nhiệm xuyên suốt đối với từng nhiệm vụ được giao.</p>
+    </div>
+
+    <div class="std-grid">
+      <article class="std-col">
+        <div class="std-col-head">
+          <div class="std-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/></svg>
+          </div>
+          <div>
+            <span class="std-col-label">01</span>
+            <h3>Tiêu chuẩn thực hiện</h3>
+          </div>
+        </div>
+
+        <ul class="std-list">
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Tuân thủ quy định</h4>
+              <p>Thực hiện theo quy định pháp luật, quy chuẩn, tiêu chuẩn và yêu cầu áp dụng cho từng dự án.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Kiểm soát chất lượng</h4>
+              <p>Theo dõi công việc trên cơ sở hồ sơ được phê duyệt, yêu cầu kỹ thuật và quy trình kiểm soát thống nhất.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Quản lý hồ sơ</h4>
+              <p>Thông tin và tài liệu được cập nhật, lưu trữ rõ ràng, bảo đảm khả năng kiểm tra và truy xuất.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>An toàn trong triển khai</h4>
+              <p>Đề cao việc nhận diện rủi ro và tuân thủ các yêu cầu về an toàn, sức khỏe và môi trường.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <article class="std-col">
+        <div class="std-col-head">
+          <div class="std-col-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <span class="std-col-label">02</span>
+            <h3>Cam kết dịch vụ</h3>
+          </div>
+        </div>
+
+        <ul class="std-list">
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Thông tin chuẩn xác</h4>
+              <p>Cung cấp thông tin có căn cứ, phản ánh đúng tình trạng thực tế của dự án.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Báo cáo minh bạch</h4>
+              <p>Kịp thời cập nhật tiến độ, sai lệch, rủi ro và những vấn đề cần quyết định.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Phối hợp chủ động</h4>
+              <p>Duy trì kết nối giữa các bên và thúc đẩy xử lý công việc theo trách nhiệm đã xác định.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="std-item">
+              <h4>Theo sát đến hoàn thành</h4>
+              <p>Theo dõi từng nhiệm vụ và vấn đề tồn đọng cho đến khi có kết quả hoặc hướng xử lý rõ ràng.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIẾT LÝ "RIGHT ANGLE" — 3 TRỤ CỘT ============ -->
+<section class="pillars">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Triết lý Right Angle</span>
+      <h2>Ba nguyên tắc dẫn hướng — <span class="accent">Chuẩn xác · Minh bạch · Kỷ luật</span></h2>
+      <p>Nền tảng để mọi năng lực và cam kết được triển khai nhất quán trên từng dự án.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <article class="pillar-card">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Chuẩn xác</h3>
+        <p>Đề cao tính chính xác trong thông tin, hồ sơ và đánh giá chuyên môn — mỗi quyết định dựa trên dữ liệu cập nhật và thực tế triển khai.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>
+        </div>
+        <h3>Minh bạch</h3>
+        <p>Thông tin, trách nhiệm và tình trạng công việc được trao đổi rõ ràng; vấn đề phát sinh được phản ánh trung thực và kịp thời.</p>
+      </article>
+
+      <article class="pillar-card">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>Kỷ luật</h3>
+        <p>Tuân thủ quy trình, tiêu chuẩn và cam kết — mỗi nhiệm vụ được theo dõi đến khi hoàn thành với tinh thần trách nhiệm cao nhất.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<div class="container">
+  <div class="cta-band">
+    <div class="cta-inner">
+      <span class="eyebrow" style="color:var(--gold-400);">Trao đổi về dự án của bạn</span>
+      <h2>Cần đơn vị tư vấn có <span class="accent">năng lực &amp; cam kết rõ ràng</span>?</h2>
+      <p>Gửi thông tin dự án, đội ngũ RianCM Cons sẽ liên hệ để tư vấn phạm vi công việc phù hợp.</p>
+      <div class="cta-row">
+        <a href="/lien-he/" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M2 21 23 12 2 3v7l16 2-16 2z"/></svg>
+          Gửi yêu cầu tư vấn
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+842873002826" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg>
+          Gọi hotline
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <a href="/" class="brand" aria-label="RianCM — Right Angle Construction Management">
+          <img class="brand-logo" src="/assets/logo-dark.png" alt="RianCM Cons — Right Angle Construction Management" />
+        </a>
+        <p class="about-blurb">Công ty TNHH Tư vấn Quản lý Xây dựng Góc Vuông — tư vấn quản lý dự án, giám sát thi công, đầu tư và thiết kế xây dựng.</p>
+      </div>
+
+      <div>
+        <h5>Dịch vụ</h5>
+        <ul>
+          <li><a href="/dich-vu/quan-ly-du-an/">Tư vấn quản lý dự án</a></li>
+          <li><a href="/dich-vu/tu-van-giam-sat/">Tư vấn giám sát thi công</a></li>
+          <li><a href="/dich-vu/tu-van-dau-tu/">Tư vấn đầu tư</a></li>
+          <li><a href="/dich-vu/quan-ly-chi-phi/">Tư vấn quản lý chi phí</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Công ty</h5>
+        <ul>
+          <li><a href="/gioi-thieu/">Giới thiệu</a></li>
+          <li><a href="/du-an/">Dự án</a></li>
+          <li><a href="/hoat-dong/">Hoạt động</a></li>
+          <li><a href="/lien-he/">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Liên hệ</h5>
+        <ul class="contact-lite">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            1155 Huỳnh Tấn Phát, P. Phú Thuận, TP.HCM
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            support@riancm.com
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2z"/></svg>
+            Hotline: (028) 7300 2826
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+            T2 – T6, 8:00 – 17:30
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div>© 2026 RianCM Cons Co., Ltd — MST: 0317593278. All rights reserved.</div>
+      <div>
+        <a href="#">Chính sách bảo mật</a> · <a href="#">Điều khoản</a> · <a href="/">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
