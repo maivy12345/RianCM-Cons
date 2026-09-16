@@ -346,6 +346,7 @@ section { padding-block: 92px; }
 }
 .nav-overlay.is-open { opacity: 1; pointer-events: auto; }
 body.menu-open { overflow: hidden; }
+body.menu-open .header { z-index: 60; }
 
 /* Hidden util */
 .hidden { display: none !important; }
@@ -389,20 +390,20 @@ body.menu-open { overflow: hidden; }
   .m-hide { display: none !important; }
 
   section {
-    padding-block: 40px;
+    padding-block: 24px;
     min-height: 0;
   }
   section > .container { width: 100%; }
   .container { padding-inline: 16px; }
   .page-banner {
-    padding-block: 28px 32px;
+    padding-block: 20px 22px;
     min-height: 0;
   }
   .page-banner .lead { display: none; }
   .page-banner h1 { font-size: 1.45rem; max-width: none; }
-  .page-banner .crumbs { margin-bottom: 10px; font-size: .75rem; }
+  .page-banner .crumbs { margin-bottom: 8px; font-size: .75rem; }
   .fact-chips { display: none; }
-  .section-head { margin-bottom: 14px; }
+  .section-head { margin-bottom: 12px; }
   .section-head p { display: none; }
   .section-head h2 { font-size: 1.3rem; }
   .eyebrow { margin-bottom: 8px; }
@@ -510,19 +511,20 @@ body.menu-open { overflow: hidden; }
   .svc-phase .pnum { width: 36px; height: 36px; font-size: .8rem; border-radius: 10px; }
   .svc-phase h3 { margin: 0; font-size: .92rem; }
   .svc-other-card p { display: none; }
-  .svc-others { min-height: 0; padding-block: 36px; }
+  .svc-others { min-height: 0; padding-block: 24px; }
 
   /* Project detail */
-  .pd-overview { padding-block: 36px; min-height: 0; }
+  .pd-hero { padding-block: 22px 26px; }
+  .pd-overview { padding-block: 24px; min-height: 0; }
   .pd-overview .container { gap: 16px; }
   .pd-cover { aspect-ratio: 16/10; border-radius: 12px; }
   .pd-facts { padding: 14px 14px; }
-  .pd-section { padding-block: 36px; min-height: 0; }
+  .pd-section { padding-block: 24px; min-height: 0; }
   .pd-scope-card p { display: none; }
   .pd-scope-card { padding: 14px; }
   .pd-highlights li span { display: none; }
   .pd-highlights li { padding: 12px 14px; }
-  .pd-related { padding-block: 36px; min-height: 0; }
+  .pd-related { padding-block: 24px; min-height: 0; }
 
   /* Empty state */
   .empty-state { padding: 28px 16px; }
