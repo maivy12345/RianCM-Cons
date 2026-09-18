@@ -3,10 +3,14 @@
 Thumbs.db
 *.log
 
-# Original oversized photos (web uses compressed project-*.jpg)
+# Original oversized photos (web uses compressed project-*.jpg / .webp / .avif)
 assets/TRAM BESS.png
 assets/VP Bin (2).png
 assets/IMG_8647.jpg
 assets/507B.png
 assets/549A.png
 assets/ChatGPT Image Sep 14, 2026, 08_44_00 AM.png
+assets/Khu lưu trú*.png
+assets/TÒA NHÀ*.png
+assets/Văn phòng tại*.jpg
+assets/nha o xa hoi*.jpg
