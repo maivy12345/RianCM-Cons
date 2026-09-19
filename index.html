@@ -5,7 +5,7 @@
 <meta name="description" content="RianCM Cons (Góc Vuông) tư vấn quản lý dự án, giám sát thi công và đầu tư xây dựng — kiểm soát chất lượng, tiến độ và chi phí cho chủ đầu tư.">
 <link rel="icon" type="image/svg+xml" href="/assets/logofav.svg">
 <link rel="preload" as="image" href="/assets/hero-bg.jpg" fetchpriority="high">
-<link rel="preload" as="image" href="/assets/hero-person.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/Frame%202147226348.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -292,11 +292,11 @@
   }
   .hero-person {
     position: absolute; right: -80px; bottom: -110px;
-    height: 760px; width: auto; max-width: none;
+    height: auto; width: calc(100% + 80px); max-width: none;
     z-index: 3; pointer-events: none;
     filter: drop-shadow(-20px 20px 30px rgba(0,0,0,.45));
   }
-  /* Fallback silhouette shape when hero-person.webp is missing */
+  /* Fallback silhouette shape when the hero image is missing */
   .hero-person-fallback {
     position: absolute; right: 0; bottom: 0;
     width: 82%; height: 88%; z-index: 2;
@@ -1175,7 +1175,7 @@
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; padding-block: 60px 80px; gap: 40px; }
     .hero-visual { min-height: 460px; }
-    .hero-person { height: 520px; right: 50%; transform: translateX(50%); bottom: -40px; }
+    .hero-person { height: auto; width: min(100%, 748px); right: 50%; transform: translateX(50%); bottom: -40px; }
     .hero-photo { width: 100%; }
     .floating-card.fc-a { top: 20px; left: 0; bottom: auto; right: auto; }
     .floating-card.fc-b { top: 160px; left: 20px; bottom: auto; right: auto; }
@@ -1562,9 +1562,9 @@
 
     <!-- RIGHT VISUAL -->
     <div class="hero-visual">
-      <!-- Person image (drop assets/hero-person.webp to activate) -->
-      <img class="hero-person" src="/assets/hero-person.webp" alt="Kỹ sư RianCM Cons tại công trường"
-           width="600" height="800" decoding="async" fetchpriority="high"
+      <!-- Hero engineers image -->
+      <img class="hero-person" src="/assets/Frame%202147226348.png" alt="Kỹ sư RianCM Cons tại công trường"
+           width="1146" height="797" decoding="async" fetchpriority="high"
            onerror="this.style.display='none'; this.nextElementSibling && this.nextElementSibling.classList.remove('hidden');" />
       <div class="hero-person-fallback hidden" aria-hidden="true"></div>
 
