@@ -234,7 +234,7 @@
   .hero .container.hero-inner { max-width: 1440px; }
   .hero-inner {
     position: relative; z-index: 5;
-    display: grid; grid-template-columns: 1.1fr .9fr;
+    display: grid; grid-template-columns: .8fr 1.2fr;
     gap: 48px; align-items: center;
     padding-block: 90px 110px;
   }
@@ -291,8 +291,10 @@
     justify-self: stretch;
   }
   .hero-person {
-    position: absolute; right: -80px; bottom: -110px;
-    height: auto; width: calc(100% + 80px); max-width: none;
+    position: absolute;
+    right: calc(-1 * max(24px, (100vw - 1440px) / 2 + 24px));
+    bottom: -110px;
+    height: auto; width: clamp(760px, 62vw, 1146px); max-width: none;
     z-index: 3; pointer-events: none;
     filter: drop-shadow(-20px 20px 30px rgba(0,0,0,.45));
   }
