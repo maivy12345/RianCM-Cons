@@ -295,7 +295,7 @@
     right: -60px;
     translate: 60px 0;
     bottom: -110px;
-    height: auto; width: clamp(576px, 46.8vw, 864px); max-width: none;
+    height: auto; width: min(40vw, 689px); max-width: none;
     z-index: 3; pointer-events: none;
     filter: drop-shadow(-20px 20px 30px rgba(0,0,0,.45));
   }
@@ -1178,7 +1178,7 @@
   @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; padding-block: 60px 80px; gap: 40px; }
     .hero-visual { min-height: 460px; }
-    .hero-person { height: auto; width: min(90%, 673.2px); right: 50%; transform: translateX(50%); bottom: -40px; }
+    .hero-person { height: auto; width: min(90%, 530px); right: 50%; transform: translateX(50%); bottom: -40px; }
     .hero-photo { width: 100%; }
     .floating-card.fc-a { top: 20px; left: 0; bottom: auto; right: auto; }
     .floating-card.fc-b { top: 160px; left: 20px; bottom: auto; right: auto; }
